@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitor Competencia Solar — Windmar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0a0c0f;
+    --surface:   #111418;
+    --border:    #1e2329;
+    --border2:   #2a3140;
+    --text:      #c8d0dc;
+    --muted:     #5a6478;
+    --accent:    #f5a623;
+    --accent2:   #00c896;
+    --danger:    #ff4d4d;
+    --warn:      #ffb347;
+    --windmar:   #0057ff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    background: rgba(10,12,15,0.95);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-mark {
+    width: 28px; height: 28px;
+    background: var(--windmar);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .logo-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .logo-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .live-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--accent2);
+    text-transform: uppercase;
+  }
+
+  .live-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent2);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .update-info {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+
+  /* ── PAGE TITLE ── */
+  .page-title {
+    margin-bottom: 32px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .page-title h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+
+  .page-title p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* ── KPI ROW ── */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+    animation: fadeUp 0.5s 0.1s ease both;
+  }
+
+  .kpi {
+    background: var(--surface);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+
+  .kpi:hover { background: #151920; }
+
+  .kpi::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .kpi:hover::before { transform: scaleX(1); }
+
+  .kpi-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .kpi-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .kpi-value.accent { color: var(--accent); }
+  .kpi-value.green  { color: var(--accent2); }
+
+  .kpi-delta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* ── GRID ── */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+    animation: fadeUp 0.5s 0.2s ease both;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+    animation: fadeUp 0.5s 0.25s ease both;
+  }
+
+  .panel {
+    background: var(--surface);
+    padding: 24px;
+  }
+
+  .panel-full {
+    background: var(--surface);
+    padding: 24px;
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+    animation: fadeUp 0.5s 0.3s ease both;
+  }
+
+  .panel-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .panel-title span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── COMPETITOR CARDS ── */
+  .competitor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .competitor-row {
+    display: grid;
+    grid-template-columns: 140px 50px 50px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .competitor-row:last-child { border-bottom: none; }
+
+  .comp-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .comp-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent);
+    text-align: center;
+  }
+
+  .comp-new {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--accent2);
+    text-align: center;
+  }
+
+  .comp-bar-wrap {
+    height: 4px;
+    background: var(--border2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .comp-bar {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 1s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .comp-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border: 1px solid var(--border2);
+    color: var(--muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ── COPY TABLE ── */
+  .copy-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .copy-table th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 0 0 12px 0;
+    border-bottom: 1px solid var(--border2);
+  }
+
+  .copy-table td {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    vertical-align: top;
+  }
+
+  .copy-table tr:last-child td { border-bottom: none; }
+
+  .copy-table td:first-child {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    padding-right: 16px;
+    white-space: nowrap;
+  }
+
+  .copy-text {
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .copy-cta {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    padding: 2px 7px;
+    background: rgba(245,166,35,0.12);
+    color: var(--accent);
+    border: 1px solid rgba(245,166,35,0.25);
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  /* ── ALERTS ── */
+  .alert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .alert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-left: 2px solid var(--border2);
+    background: rgba(255,255,255,0.02);
+  }
+
+  .alert-item.warn  { border-left-color: var(--warn); }
+  .alert-item.good  { border-left-color: var(--accent2); }
+  .alert-item.info  { border-left-color: var(--windmar); }
+
+  .alert-icon {
+    font-size: 14px;
+    line-height: 1.5;
+    flex-shrink: 0;
+  }
+
+  .alert-text {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .alert-text strong {
+    color: #fff;
+    font-weight: 500;
+  }
+
+  /* ── PLATFORMS ── */
+  .platform-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .platform-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .platform-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text);
+    width: 130px;
+    flex-shrink: 0;
+  }
+
+  .platform-bar-wrap {
+    flex: 1;
+    height: 3px;
+    background: var(--border2);
+    border-radius: 2px;
+  }
+
+  .platform-bar {
+    height: 100%;
+    background: var(--windmar);
+    border-radius: 2px;
+  }
+
+  .platform-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    width: 24px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+
+  footer span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    .grid-2  { grid-template-columns: 1fr; }
+    .grid-3  { grid-template-columns: 1fr; }
+    main     { padding: 20px 16px; }
+    header   { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="logo">
+    <div class="logo-mark"></div>
+    <div>
+      <div class="logo-text">Windmar</div>
+      <div class="logo-sub">Solar Intelligence</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="live-badge">
+      <div class="live-dot"></div>
+      Live
+    </div>
+    <div class="update-info" id="updateInfo">—</div>
+  </div>
+</header>
+
+<!-- ══ MAIN ══ -->
+<main>
+
+  <div class="page-title">
+    <h1>Monitor Competencia Solar</h1>
+    <p id="subtitle">Puerto Rico · Meta Ads Library · lunes y viernes 8am</p>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-label">Anuncios activos totales</div>
+      <div class="kpi-value accent" id="kpiTotal">—</div>
+      <div class="kpi-delta" id="kpiTotalDelta"></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Nuevos esta semana</div>
+      <div class="kpi-value green" id="kpiNuevos">—</div>
+      <div class="kpi-delta">últimos 7 días</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Competidores monitoreados</div>
+      <div class="kpi-value" id="kpiComp">4</div>
+      <div class="kpi-delta">PR · mercado solar</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Más activo</div>
+      <div class="kpi-value" id="kpiMasActivo" style="font-size:18px; padding-top:6px;">—</div>
+      <div class="kpi-delta" id="kpiMasActivoDelta"></div>
+    </div>
+  </div>
+
+  <!-- Competitors + Plataformas -->
+  <div class="grid-2">
+    <div class="panel">
+      <div class="panel-title">Estado competidores <span id="fechaReporte">—</span></div>
+      <div class="competitor-list" id="competitorList">
+        <div style="color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 12px;">
+          Cargando datos...
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Plataformas activas</div>
+      <div class="platform-grid" id="platformGrid">
+        <div style="color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 12px;">
+          Cargando...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copy destacado -->
+  <div class="panel-full">
+    <div class="panel-title">Copy destacado por competidor</div>
+    <table class="copy-table">
+      <thead>
+        <tr>
+          <th>Competidor</th>
+          <th>Mensaje principal</th>
+          <th style="padding-left:16px;">Formato</th>
+          <th style="padding-left:16px;">CTA</th>
+        </tr>
+      </thead>
+      <tbody id="copyTableBody">
+        <tr><td colspan="4" style="color: var(--muted); font-family: 'IBM Plex Mono',monospace; font-size:12px; padding:16px 0;">Cargando...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Alertas -->
+  <div class="grid-2">
+    <div class="panel">
+      <div class="panel-title">Alertas e insights</div>
+      <div class="alert-list" id="alertList">
+        <div style="color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 12px;">
+          Cargando...
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Historial de reportes</div>
+      <table class="copy-table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Total ads</th>
+            <th style="padding-left:12px;">Más activo</th>
+          </tr>
+        </thead>
+        <tbody id="historialBody">
+          <tr><td colspan="3" style="color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:12px;padding:12px 0;">Sin historial previo.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>Windmar Home · Solar Intelligence · Puerto Rico</span>
+  <span id="footerDate">—</span>
+</footer>
+
+<script>
+// ════════════════════════════════════════════
+// DATOS DEL REPORTE — Claude actualiza este objeto
+// en cada deploy. NO modificar la estructura.
+// ════════════════════════════════════════════
+const REPORTE = {
+  fecha: "14 de abril, 2025",
+  generado: "lunes 14 abr 2025, 8:00am AST",
+  competidores: [
+    {
+      nombre: "Power Solar",
+      activos: 8,
+      nuevos7d: 2,
+      plataformas: ["Facebook", "Instagram"],
+      formato: "Video + Imagen",
+      copy: "Energía Solar en 30 días / $0 pronto",
+      cta: "Solicitar cotización"
+    },
+    {
+      nombre: "Home Power Sun Energy",
+      activos: 6,
+      nuevos7d: 1,
+      plataformas: ["Facebook", "Instagram", "TikTok"],
+      formato: "Video",
+      copy: "Reduce LUMA hasta 80% / Cotización GRATIS",
+      cta: "Cotizar ahora"
+    },
+    {
+      nombre: "Tu Planta Solar",
+      activos: 3,
+      nuevos7d: 0,
+      plataformas: ["Facebook", "Instagram"],
+      formato: "Imagen",
+      copy: "Cero Pronto Pago / Sin verificación de crédito",
+      cta: "Aplica hoy"
+    },
+    {
+      nombre: "Planet Solar",
+      activos: 5,
+      nuevos7d: 1,
+      plataformas: ["Facebook", "Instagram"],
+      formato: "Imagen + Carrusel",
+      copy: "2.99% tasa fija / Garantía 30 años",
+      cta: "Ver oferta"
+    }
+  ],
+  alertas: [
+    { tipo: "warn",  texto: "<strong>Home Power Sun Energy</strong> está usando TikTok — único competidor en esa plataforma. Considerar activar TikTok Ads." },
+    { tipo: "good",  texto: "<strong>Tu Planta Solar</strong> sin nuevos anuncios esta semana. Posible pausa de campaña o reajuste presupuestal." },
+    { tipo: "info",  texto: "<strong>Power Solar</strong> es el más activo con 8 anuncios. Principal amenaza en Facebook/Instagram." },
+    { tipo: "good",  texto: "Ningún competidor usa <strong>Google Ads</strong> activamente — canal disponible para Windmar." }
+  ],
+  historial: [
+    { fecha: "14 abr 2025", total: 22, masActivo: "Power Solar" }
+  ]
+};
+
+// ════════════════════════════════════════════
+// RENDER — no tocar
+// ════════════════════════════════════════════
+function render() {
+  const d = REPORTE;
+  const total = d.competidores.reduce((s, c) => s + c.activos, 0);
+  const nuevos = d.competidores.reduce((s, c) => s + c.nuevos7d, 0);
+  const masActivo = [...d.competidores].sort((a, b) => b.activos - a.activos)[0];
+  const maxActivos = masActivo.activos;
+
+  // Header
+  document.getElementById('updateInfo').textContent = d.generado;
+  document.getElementById('subtitle').textContent =
+    `Puerto Rico · Meta Ads Library · generado ${d.generado}`;
+  document.getElementById('fechaReporte').textContent = d.fecha;
+  document.getElementById('footerDate').textContent =
+    `Último deploy: ${d.generado}`;
+
+  // KPIs
+  document.getElementById('kpiTotal').textContent = total;
+  document.getElementById('kpiNuevos').textContent = `+${nuevos}`;
+  document.getElementById('kpiMasActivo').textContent = masActivo.nombre;
+  document.getElementById('kpiMasActivoDelta').textContent =
+    `${masActivo.activos} anuncios activos`;
+
+  // Competitor list
+  const compList = document.getElementById('competitorList');
+  compList.innerHTML = d.competidores.map(c => {
+    const pct = Math.round((c.activos / maxActivos) * 100);
+    return `
+      <div class="competitor-row">
+        <div class="comp-name">${c.nombre}</div>
+        <div class="comp-count">${c.activos}</div>
+        <div class="comp-new">+${c.nuevos7d}</div>
+        <div class="comp-bar-wrap">
+          <div class="comp-bar" style="width:${pct}%"></div>
+        </div>
+        <div class="comp-tag">${c.plataformas.length} plat.</div>
+      </div>`;
+  }).join('');
+
+  // Platform breakdown
+  const platCount = {};
+  d.competidores.forEach(c =>
+    c.plataformas.forEach(p => platCount[p] = (platCount[p] || 0) + 1)
+  );
+  const maxPlat = Math.max(...Object.values(platCount));
+  const platGrid = document.getElementById('platformGrid');
+  platGrid.innerHTML = Object.entries(platCount)
+    .sort((a, b) => b[1] - a[1])
+    .map(([name, count]) => `
+      <div class="platform-row">
+        <div class="platform-name">${name}</div>
+        <div class="platform-bar-wrap">
+          <div class="platform-bar" style="width:${Math.round(count/maxPlat*100)}%"></div>
+        </div>
+        <div class="platform-count">${count}</div>
+      </div>`).join('');
+
+  // Copy table
+  const copyBody = document.getElementById('copyTableBody');
+  copyBody.innerHTML = d.competidores.map(c => `
+    <tr>
+      <td>${c.nombre}</td>
+      <td><div class="copy-text">${c.copy}</div></td>
+      <td style="padding-left:16px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap;">${c.formato}</td>
+      <td style="padding-left:16px;"><span class="copy-cta">${c.cta}</span></td>
+    </tr>`).join('');
+
+  // Alerts
+  const alertList = document.getElementById('alertList');
+  alertList.innerHTML = d.alertas.map(a => `
+    <div class="alert-item ${a.tipo}">
+      <div class="alert-icon">${a.tipo === 'warn' ? '⚠' : a.tipo === 'good' ? '↑' : '→'}</div>
+      <div class="alert-text">${a.texto}</div>
+    </div>`).join('');
+
+  // Historial
+  const hist = document.getElementById('historialBody');
+  hist.innerHTML = d.historial.length ? d.historial.map(h => `
+    <tr>
+      <td>${h.fecha}</td>
+      <td style="font-family:'IBM Plex Mono',monospace;color:var(--accent);">${h.total}</td>
+      <td style="padding-left:12px;color:var(--text);">${h.masActivo}</td>
+    </tr>`).join('') :
+    `<tr><td colspan="3" style="color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:12px;padding:12px 0;">Sin historial previo.</td></tr>`;
+}
+
+render();
+</script>
+</body>
+</html>
