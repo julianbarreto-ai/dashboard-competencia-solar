@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Monitor Competencia Solar — Windmar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2h?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg:#0a0c0f; --surface:#111418; --surface2:#161b22;
@@ -267,115 +267,117 @@
 // DATOS DEL REPORTE — Claude actualiza SOLO este objeto
 // ════════════════════════════════════════════════════════
 const REPORTE = {
-  fecha: "14 de abril, 2026",
-  generado: "martes 14 abr 2026, 8:00am AST",
-
+  fecha: "15 de abril, 2026",
+  generado: "miércoles 15 abr 2026, 8:00am AST",
   competidores: [
     {
       nombre: "Power Solar",
       metaUrl: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=PR&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&view_all_page_id=2011754402424648",
-      activos: 8,
-      nuevos7d: 2,
-      plataformas: ["Facebook", "Instagram"],
-      // TENDENCIAS — análisis del patrón común en TODOS sus anuncios activos
+      activos: 94,
+      nuevos7d: 13,
+      plataformas: ["Facebook", "Instagram", "Messenger", "Audience Network"],
       tendencias: {
-        mensajeCentral: "Energía solar en 30 días / $0 pronto pago",
+        mensajeCentral: "Pagos desde $140/mes · energía segura · 100% compañía local · 25 años garantía",
         copies: [
-          { titulo: "Energía Solar en 30 días", copy: "$0 pronto pago. Instalamos en todo Puerto Rico. Cotiza gratis hoy." },
-          { titulo: "Ahorra hasta 90% en LUMA", copy: "Más de 500 familias ya ahorran con Power Solar. ¿Y tú?" }
+          { titulo: "Energía segura desde $140", copy: "La tranquilidad de tu hogar empieza con energía segura y confiable. Pagos desde $140 al mes y recibes 25 años de seguridad. 100% local." },
+          { titulo: "FlexiPay desde $140", copy: "Dar el paso a la energía solar es más accesible de lo que piensas. Con FlexiPay desde $140 al mes, protege tu hogar con sistema solar." },
+          { titulo: "Localidades en todo PR", copy: "Tener control empieza con tener respaldo cerca. Con más de 15 localidades alrededor de la isla, estamos cerca de ti." },
+          { titulo: "Servicio 24/Siempre", copy: "Siempre listos para responderte. Servicio continuo, respaldo real y atención que no se apaga. Te responden 24/SIEMPRE." }
         ],
-        patronesRecurrentes: ["$0 pronto pago en todos los anuncios", "Mención directa de LUMA", "Urgencia de tiempo (30 días)", "Prueba social (número de clientes)"],
-        formatosDominantes: ["Video 15-30 seg", "Imagen estática"],
-        emocionesDominantes: ["Alivio económico", "Urgencia"],
-        ctas: ["Solicitar cotización", "Ver cómo funciona"],
+        patronesRecurrentes: ["$140/mes como precio ancla en casi todos los anuncios", "100% local y compañía puertorriqueña como diferenciador", "25 años de garantía/seguridad repetido constantemente", "Localidades específicas (Caguas, Moca, San Juan) para cercanía", "FlexiPay como producto financiero propio", "Servicio 24/SIEMPRE como propuesta de soporte"],
+        formatosDominantes: ["Imagen estática", "Video", "Carrusel"],
+        emocionesDominantes: ["Seguridad", "Cercanía local", "Alivio económico", "Confianza"],
+        ctas: ["Learn More", "Más información"],
         amenaza: "alta",
-        amenazaRazon: "Precio cero de entrada + velocidad de instalación ataca las dos objeciones principales del mercado PR",
-        oportunidad: "Windmar puede responder con garantía más larga y credencial de empresa establecida vs. competidor más pequeño"
+        amenazaRazon: "94 anuncios activos — volumen masivo en Meta. Precio ancla $140/mes y mensaje 100% local ataca el sentimiento patriótico del mercado PR. 13 anuncios nuevos esta semana muestra campaña muy activa.",
+        oportunidad: "Windmar debe contrarrestar con su trayectoria de 20+ años y diferenciarse en tecnología/marca premium. Power Solar satura con volumen — Windmar puede ganar con calidad de mensaje."
       }
     },
     {
       nombre: "Home Power Sun Energy",
       metaUrl: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=PR&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&view_all_page_id=101563208741017",
-      activos: 6,
-      nuevos7d: 1,
-      plataformas: ["Facebook", "Instagram", "TikTok"],
+      activos: 7,
+      nuevos7d: 0,
+      plataformas: ["Facebook", "Instagram", "Messenger", "Audience Network"],
       tendencias: {
-        mensajeCentral: "Reduce tu factura de LUMA hasta 80% / Cotización GRATIS",
+        mensajeCentral: "La luz no va a dejar de subir — Protégete con solar + batería desde $156/mes",
         copies: [
-          { titulo: "Reduce LUMA hasta 80%", copy: "Cotización gratuita. Sin compromiso. Instalamos en PR." },
-          { titulo: "Solar sin complicaciones", copy: "¿Cansado de pagar LUMA? Nosotros lo resolvemos. WhatsApp gratis." }
+          { titulo: "La luz subió, ¡y lo que falta!", copy: "La luz no va a dejar de subir… y quien lo paga eres tú. Protégete contra aumentos y apagones con sistema solar + batería desde $156 al mes." },
+          { titulo: "Equipo en quien confiar", copy: "La energía de tu hogar merece un equipo en quien confiar. Instaladores certificados, asesores en toda la isla." },
+          { titulo: "La cuenta de luz sube de nuevo", copy: "¿Por qué esperar al próximo aumento? Ahorra energía y dinero con solar + batería desde solo $156/mes. Oferta válida por tiempo limitado." }
         ],
-        patronesRecurrentes: ["Porcentaje específico de ahorro (80%)", "GRATIS en el CTA", "WhatsApp como canal de conversión", "Tono conversacional/informal"],
-        formatosDominantes: ["Video corto (TikTok style)", "Imagen con texto grande"],
-        emocionesDominantes: ["Frustración con LUMA", "Facilidad"],
-        ctas: ["Cotizar ahora", "Escríbenos por WhatsApp"],
-        amenaza: "alta",
-        amenazaRazon: "Único competidor en TikTok — alcanza segmento joven 25-35 que Windmar no está cubriendo en ese canal",
-        oportunidad: "Activar TikTok Ads para Windmar. Canal libre de competencia directa Windmar actualmente."
+        patronesRecurrentes: ["$156/mes como precio ancla con batería incluida", "Mensaje de urgencia por aumentos de LUMA", "Solar + batería como bundle completo", "Oferta por tiempo limitado para crear urgencia", "Tono emocional — frustración con la luz"],
+        formatosDominantes: ["Imagen estática", "Video"],
+        emocionesDominantes: ["Frustración", "Urgencia", "Protección"],
+        ctas: ["Get Offer", "See Details"],
+        amenaza: "media",
+        amenazaRazon: "Solo 7 anuncios activos y 0 nuevos esta semana — menor intensidad. Pero su mensaje de urgencia por aumentos de LUMA es muy efectivo emocionalmente.",
+        oportunidad: "Windmar puede capitalizar el miedo a aumentos de LUMA con un mensaje más positivo y aspiracional — no solo protección sino independencia energética."
       }
     },
     {
       nombre: "Tu Planta Solar",
       metaUrl: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=PR&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&view_all_page_id=590065490845932",
       activos: 3,
-      nuevos7d: 0,
-      plataformas: ["Facebook", "Instagram"],
+      nuevos7d: 1,
+      plataformas: ["Facebook", "Instagram", "Messenger", "Audience Network"],
       tendencias: {
-        mensajeCentral: "Cero Pronto Pago / Sin verificación de crédito",
+        mensajeCentral: "Paz mental + sistema correcto para tu hogar · Giveaway Gendome 3000",
         copies: [
-          { titulo: "Cero Pronto Pago", copy: "Sin verificación de crédito. Accesible para todas las familias de Puerto Rico." }
+          { titulo: "No todos necesitan el mismo sistema", copy: "No todos los hogares consumen lo mismo. No vendemos el más grande, vendemos el correcto. Completa el formulario para orientarte." },
+          { titulo: "Paz mental #SiempreON", copy: "La paz mental que necesitas comienza con energía estable, tu familia contenta, tus chicos estudiando sin pausa." },
+          { titulo: "¡Gendome 3000 GRATIS!", copy: "¡Tu Planta PR te regala una Gendome 3000 este mes! Regístrate hoy. Solo toma 30 segundos. Participas automáticamente." }
         ],
-        patronesRecurrentes: ["Eliminación de barrera de crédito", "Mensaje de accesibilidad", "Segmento no bancarizado", "Pocos anuncios — posible pausa de campaña"],
-        formatosDominantes: ["Imagen estática con texto"],
-        emocionesDominantes: ["Accesibilidad", "Inclusión"],
-        ctas: ["Aplica hoy"],
-        amenaza: "media",
-        amenazaRazon: "Captura segmento no bancarizado que otros ignoran — 0 nuevos anuncios esta semana sugiere debilitamiento",
-        oportunidad: "Segmento no bancarizado desatendido por Windmar. Evaluar producto de financiamiento alternativo."
+        patronesRecurrentes: ["Personalización del sistema como diferenciador", "Giveaway de batería como lead magnet", "#SiempreON como hashtag de marca", "Enfoque en familia y paz mental"],
+        formatosDominantes: ["Video", "Imagen estática"],
+        emocionesDominantes: ["Tranquilidad", "Personalización", "Emoción por sorteo"],
+        ctas: ["Más información", "Sign Up"],
+        amenaza: "baja",
+        amenazaRazon: "Solo 3 anuncios activos — bajo volumen. Pero el giveaway de batería Gendome 3000 puede generar leads masivos a bajo costo.",
+        oportunidad: "Windmar puede implementar un lead magnet similar (sorteo, consulta gratis, auditoría energética) para captar leads del segmento que busca orientación personalizada."
       }
     },
     {
       nombre: "Planet Solar",
       metaUrl: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=PR&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&view_all_page_id=403395639829689",
-      activos: 5,
-      nuevos7d: 1,
+      activos: 42,
+      nuevos7d: 12,
       plataformas: ["Facebook", "Instagram"],
       tendencias: {
-        mensajeCentral: "2.99% tasa fija / Garantía 30 años",
+        mensajeCentral: "Brillar sin pagar · Eficiencia energética · Descuento Tesla · Alianza Costco",
         copies: [
-          { titulo: "2.99% Tasa Fija — Planet Solar", copy: "La mejor tasa de financiamiento solar en PR. Garantía 30 años." },
-          { titulo: "Garantía real de 30 años", copy: "Instalación profesional. Paneles de primera. Respaldados por 3 décadas." }
+          { titulo: "Brillar sin pagar", copy: "¿Listo para brillar sin pagar? Entra ahora a brillagratis.com y participa. Planet Solar regala 10 sistemas solares." },
+          { titulo: "Eficiencia Energética", copy: "¿Sabías que EFICIENCIA ENERGÉTICA no es solo usar menos? Aprovechar el sol para ahorrar dinero y cuidar el planeta es eficiencia." },
+          { titulo: "Descuento baterías Tesla", copy: "Para que tu hogar brille, pase lo que pase, en Planet tenemos un descuento especial en baterías Tesla." },
+          { titulo: "Planet Solar en Costco", copy: "Instala tu sistema solar con Planet Solar a través de Costco y recibe Shop Card con 10% del equipo solar + Tesla Powerwall 3." }
         ],
-        patronesRecurrentes: ["Tasa específica muy competitiva (2.99%)", "Garantía extendida como diferenciador", "Posicionamiento premium", "Carrusel para mostrar múltiples beneficios"],
-        formatosDominantes: ["Carrusel", "Imagen premium"],
-        emocionesDominantes: ["Confianza", "Estabilidad a largo plazo"],
-        ctas: ["Ver oferta", "Conocer financiamiento"],
+        patronesRecurrentes: ["Giveaway masivo — 10 sistemas solares gratis vía brillagratis.com", "Alianza con Costco como seal of trust", "Tesla Powerwall 3 como producto premium", "Reclutamiento de personal (señal de expansión)", "3 formas de adquisición: compra, financiamiento, PPA", "WhatsApp y teléfono directo como canal de conversión"],
+        formatosDominantes: ["Imagen estática", "Video", "Carrusel"],
+        emocionesDominantes: ["Aspiración", "Confianza (Costco)", "Independencia energética", "Urgencia"],
+        ctas: ["Más información", "Learn More", "Sign Up"],
         amenaza: "alta",
-        amenazaRazon: "Posicionamiento premium con tasa y garantía específicas — compite directo con el tier de cliente ideal de Windmar",
-        oportunidad: "Windmar debe publicar explícitamente su tasa y años de garantía en anuncios para contrarrestar comparación directa"
+        amenazaRazon: "42 anuncios activos con 12 nuevos esta semana — segunda fuerza más agresiva. La alianza con Costco y Tesla Powerwall 3 posiciona como premium. El giveaway de 10 sistemas genera volumen masivo de leads.",
+        oportunidad: "Windmar debe destacar sus propias alianzas y certificaciones. La competencia con Costco es difícil pero Windmar puede enfatizar servicio local directo vs. retail."
       }
     }
   ],
-
   googleAds: [
     {
       competidor: "Power Solar",
       activo: true,
-      keywords: ["paneles solares puerto rico", "energia solar pr", "instalacion solar pr", "solar sin pronto pago"],
+      keywords: ["placas solares puerto rico"],
       copies: [
-        { titulo: "Paneles Solares PR — $0 Inicial", descripcion: "Instala energía solar en 30 días. Sin pronto pago.", landing: "powersolarpr.com/cotizar" },
-        { titulo: "Ahorra en LUMA con Solar", descripcion: "Más de 500 familias ya ahorrando. Cotiza gratis hoy.", landing: "powersolarpr.com/ahorra" }
+        { titulo: "Oferta Placas Solares", descripcion: "Pagos desde $163 al mes — Instala hoy tu sistema solar con pagos accesibles y respaldo garantizado por 3 décadas.", landing: "powersolarpr.com" },
+        { titulo: "Power Solar Puerto Rico - Oferta Placas Solares", descripcion: "Garantía de 25 años, energía sin apagones y financiamiento accesible. Ahorro A Largo Plazo.", landing: "powersolarpr.com" }
       ],
-      presupuestoEstimado: "$2,800 - $4,200/mes"
+      presupuestoEstimado: "$200 - $400/mes"
     },
     {
       competidor: "Home Power Sun Energy",
-      activo: true,
-      keywords: ["solar home pr", "cotizacion solar gratis", "energia solar whatsapp"],
-      copies: [
-        { titulo: "Reduce LUMA Hasta 80%", descripcion: "Cotización gratuita. Instalamos en todo Puerto Rico.", landing: "homepowersun.com" }
-      ],
-      presupuestoEstimado: "$1,200 - $2,000/mes"
+      activo: false,
+      keywords: [],
+      copies: [],
+      presupuestoEstimado: "$0 detectado"
     },
     {
       competidor: "Tu Planta Solar",
@@ -386,33 +388,27 @@ const REPORTE = {
     },
     {
       competidor: "Planet Solar",
-      activo: true,
-      keywords: ["planet solar pr", "financiamiento solar tasa baja", "paneles solares garantia 30 anos"],
-      copies: [
-        { titulo: "2.99% Tasa Fija — Planet Solar", descripcion: "La mejor tasa de financiamiento solar en PR. Garantía 30 años.", landing: "planetsolarpr.com/oferta" }
-      ],
-      presupuestoEstimado: "$3,500 - $5,000/mes"
+      activo: false,
+      keywords: [],
+      copies: [],
+      presupuestoEstimado: "$0 detectado"
     }
   ],
-
   auctionInsights: [
-    { nombre: "Windmar Home", esWindmar: true,  impresiones: 68, posicion: 1.8, sobreWindmar: null, keywords: 24 },
-    { nombre: "Power Solar",  esWindmar: false, impresiones: 54, posicion: 2.3, sobreWindmar: 38,   keywords: 18 },
-    { nombre: "Planet Solar", esWindmar: false, impresiones: 47, posicion: 2.7, sobreWindmar: 22,   keywords: 15 },
-    { nombre: "Home Power Sun Energy", esWindmar: false, impresiones: 31, posicion: 3.4, sobreWindmar: 12, keywords: 9 },
-    { nombre: "Tu Planta Solar", esWindmar: false, impresiones: 14, posicion: 4.1, sobreWindmar: 4, keywords: 5 }
+    { nombre: "Windmar", esWindmar: true, impresiones: 100, posicion: 1.0, sobreWindmar: null, keywords: 5 },
+    { nombre: "Power Solar", esWindmar: false, impresiones: 20, posicion: 2.5, sobreWindmar: 0, keywords: 1 },
+    { nombre: "Tu Planta Solar", esWindmar: false, impresiones: 10, posicion: 3.0, sobreWindmar: 0, keywords: 1 }
   ],
-
   alertas: [
-    { tipo: "warn", fuente: "Meta Ads Library",  texto: "<strong>Home Power Sun Energy</strong> es el único competidor activo en TikTok — alcanza segmento 25-35 que Windmar no cubre en ese canal." },
-    { tipo: "warn", fuente: "Ahrefs",             texto: "<strong>Planet Solar</strong> invierte ~$3,500-$5,000/mes en Google Ads — competidor más agresivo en search PR." },
-    { tipo: "warn", fuente: "Semrush",            texto: "<strong>Power Solar</strong> aparece sobre Windmar en el 38% de subastas compartidas — revisar estrategia de bid en keywords de pronto pago." },
-    { tipo: "good", fuente: "Meta Ads Library",  texto: "<strong>Tu Planta Solar</strong> sin anuncios nuevos esta semana y sin presencia en Google — señal de debilitamiento." },
-    { tipo: "good", fuente: "Semrush",            texto: "<strong>Windmar</strong> lidera la subasta con 68% de tasa de impresiones — posición dominante en PR mantenida." },
-    { tipo: "info", fuente: "Meta + Ahrefs",     texto: "Ningún competidor usa <strong>garantía explícita</strong> como mensaje principal en Meta. Windmar tiene ventana para diferenciarse en ese eje." }
+    { tipo: "warn", fuente: "Meta Ads Library", texto: "<strong>Power Solar</strong> tiene 94 anuncios activos — el más agresivo del mercado. Volumen masivo en Meta con 13 nuevos esta semana. Saturación de mercado." },
+    { tipo: "warn", fuente: "Meta Ads Library", texto: "<strong>Planet Solar</strong> escala rápido con 42 anuncios y alianza con Costco + Tesla Powerwall 3. Giveaway de 10 sistemas genera leads masivos." },
+    { tipo: "good", fuente: "Semrush", texto: "<strong>Windmar</strong> lidera Google Ads con posición #1 en las 5 keywords pagadas y mayor tráfico de pago — dominio claro en search." },
+    { tipo: "warn", fuente: "Meta Ads Library", texto: "<strong>Home Power Sun Energy</strong> usa mensaje de frustración con LUMA muy efectivo — $156/mes con batería incluida compite directamente con Power Solar." },
+    { tipo: "good", fuente: "Semrush", texto: "Solo <strong>Power Solar</strong> compite en Google Ads — 3 de 4 competidores no tienen presencia en búsqueda pagada. Ventaja clara para Windmar." },
+    { tipo: "info", fuente: "Meta Ads Library", texto: "Ningún competidor usa <strong>marca premium o trayectoria de 20+ años</strong> como mensaje central. Oportunidad para Windmar de diferenciarse por experiencia." }
   ],
-
   historial: [
+    { fecha: "15 abr 2026", metaTotal: 146, googleActivos: 1, masActivo: "Power Solar" },
     { fecha: "14 abr 2026", metaTotal: 22, googleActivos: 3, masActivo: "Power Solar" }
   ]
 };
