@@ -268,7 +268,8 @@
 // ════════════════════════════════════════════════════════
 const REPORTE = {
   fecha: "15 de abril, 2026",
-  generado: "miércoles 15 abr 2026, 2:00pm AST",
+  generado: "martes 15 abr 2026, 4:30pm AST",
+
   competidores: [
     {
       nombre: "Power Solar",
@@ -289,7 +290,7 @@ const REPORTE = {
         emocionesDominantes: ["Seguridad", "Cercanía local", "Alivio económico", "Confianza"],
         ctas: ["Learn More", "Más información"],
         amenaza: "alta",
-        amenazaRazon: "94 anuncios activos — volumen masivo en Meta. Precio ancla $140/mes y mensaje 100% local ataca el sentimiento patriótico del mercado PR. 13 anuncios nuevos esta semana muestra campaña muy activa.",
+        amenazaRazon: "94 anuncios activos en Meta + ~400 anuncios en Google Ads Transparency (región PR). Domina ambas plataformas. 6 anuncios de búsqueda, videos YouTube (A Sol y Verdad), display (Energía Estable 24/7), y modelos TOPCon 595W. Power Solar LLC verificado.",
         oportunidad: "Windmar debe contrarrestar con su trayectoria de 20+ años y diferenciarse en tecnología/marca premium. Power Solar satura con volumen — Windmar puede ganar con calidad de mensaje."
       }
     },
@@ -311,7 +312,7 @@ const REPORTE = {
         emocionesDominantes: ["Frustración", "Urgencia", "Protección"],
         ctas: ["Get Offer", "See Details"],
         amenaza: "media",
-        amenazaRazon: "Solo 7 anuncios activos y 0 nuevos esta semana — menor intensidad. Pero su mensaje de urgencia por aumentos de LUMA es muy efectivo emocionalmente.",
+        amenazaRazon: "7 anuncios Meta + 12 anuncios Google Ads (región PR) por ION LEED LLC. Anuncios de búsqueda enfocados en paneles solares, mantenimiento y cotización virtual. Dominio correcto: homepowerpr.com.",
         oportunidad: "Windmar puede capitalizar el miedo a aumentos de LUMA con un mensaje más positivo y aspiracional — no solo protección sino independencia energética."
       }
     },
@@ -333,7 +334,7 @@ const REPORTE = {
         emocionesDominantes: ["Tranquilidad", "Personalización", "Emoción por sorteo"],
         ctas: ["Más información", "Sign Up"],
         amenaza: "baja",
-        amenazaRazon: "Solo 3 anuncios activos — bajo volumen. Pero el giveaway de batería Gendome 3000 puede generar leads masivos a bajo costo.",
+        amenazaRazon: "Solo 3 anuncios Meta activos y 0 en Google Ads Transparency (región PR). Bajo volumen en ambas plataformas.",
         oportunidad: "Windmar puede implementar un lead magnet similar (sorteo, consulta gratis, auditoría energética) para captar leads del segmento que busca orientación personalizada."
       }
     },
@@ -356,59 +357,85 @@ const REPORTE = {
         emocionesDominantes: ["Aspiración", "Confianza (Costco)", "Independencia energética", "Urgencia"],
         ctas: ["Más información", "Learn More", "Sign Up"],
         amenaza: "alta",
-        amenazaRazon: "42 anuncios activos con 12 nuevos esta semana — segunda fuerza más agresiva. La alianza con Costco y Tesla Powerwall 3 posiciona como premium. El giveaway de 10 sistemas genera volumen masivo de leads.",
+        amenazaRazon: "42 anuncios Meta + 19 anuncios Google Ads (región PR) por P2P Communications LLC. Anuncios de búsqueda, video y display. Sistema solar gratis, placas económicas, ahorro 70%. También aparece en Auction Insights de Google Ads Windmar con <10% impression share.",
         oportunidad: "Windmar debe destacar sus propias alianzas y certificaciones. La competencia con Costco es difícil pero Windmar puede enfatizar servicio local directo vs. retail."
       }
     }
   ],
+
   googleAds: [
     {
       competidor: "Power Solar",
       activo: true,
-      keywords: ["placas solares puerto rico"],
+      keywords: ["placas solares puerto rico", "energía solar", "power solar"],
       copies: [
-        { titulo: "Energía Solar en Puero Rico - Power Solar Puerto Rico", descripcion: "Power Solar es el proveedor líder en Puerto Rico de soluciones solares de alta calidad. Reduce tu factura eléctrica.", landing: "powersolarpr.com/power/solar" },
-        { titulo: "Solución de Energía Renovable - Solicita una Llamada Gratuita", descripcion: "Ilumina tu futuro con Power Solar: Energía confiable y sostenible para cada hogar. Sitelinks: Placas Solares Para Casas, Oferta Placas Solares.", landing: "powersolarpr.com" },
-        { titulo: "Instala con Power Solar - Sistema solar garantizado", descripcion: "Protección real ante apagones. Garantía de 30 años y tranquilidad energética para tu hogar.", landing: "powersolarpr.com" }
+        { titulo: "Power Solar Puerto Rico - Energía con Power Solar", descripcion: "Ilumina tu futuro con Power Solar: Energía confiable y sostenible para cada hogar. Únete a la revolución solar.", landing: "powersolarpr.com/power/solar" },
+        { titulo: "Programa Nueva Energía en Puerto Rico: Energía Solar para Hogares", descripcion: "Descubre el Programa Nueva Energía en PR, ofreciendo incentivos para sistemas solares en hogares. Sitelinks: Contáctanos, Cotización Gratuita, Sistema Solar.", landing: "powersolarpr.com" },
+        { titulo: "Energía Solar en Puerto Rico - Power Solar Puerto Rico", descripcion: "Power Solar es el proveedor líder en Puerto Rico de soluciones solares de alta calidad. Reduce tu factura.", landing: "powersolarpr.com/power/solar" },
+        { titulo: "Ahorra con Energía Solar - Ahorra En Tu Factura De Luz", descripcion: "Energía solar eficiente y accesible para tu hogar. Coloca tu sistema solar ahora. Con Power Solar tienes luz continua y respaldo total.", landing: "powersolarpr.com" },
+        { titulo: "Sistema De Energía Solar en PR - Modelo Solar TOPCon 595W", descripcion: "Energía solar avanzada con paneles TOPCon 595W de nueva generación. Comprometidos con la sostenibilidad. Expertos Solares En PR.", landing: "powersolarpr.com" },
+        { titulo: "Energía Estable 24/7 (Display)", descripcion: "Protege tu hogar de apagones con energía solar inteligente. Solicita información. Power Solar LLC Verificado.", landing: "powersolarpr.com" }
       ],
-      presupuestoEstimado: "$200 - $400/mes (Semrush)"
+      presupuestoEstimado: "~400 anuncios totales (búsqueda + video + display) en región PR"
     },
     {
       competidor: "Home Power Sun Energy",
-      activo: false,
-      keywords: [],
-      copies: [],
-      presupuestoEstimado: "$0 detectado"
+      activo: true,
+      keywords: ["paneles solares", "placas solares", "mantenimiento placas solares"],
+      copies: [
+        { titulo: "Home Power Sun Energy - Página Web Oficial", descripcion: "Ingenieros y Peritos certificados para evaluar, instalar y certificar Paneles Solares. Sitelinks: Paneles Solares Puerto Rico, Venta de Paneles Solares.", landing: "homepowerpr.com/paneles/solares" },
+        { titulo: "Mantenimiento Placas Solares - Asesoría Profesional", descripcion: "Ingenieros certificados para evaluar, diseñar, instalar y certificar Placas Solares. Sitelinks: Instalación y Mantenimiento, Servicios.", landing: "homepowerpr.com/placas/solares" },
+        { titulo: "Home Power Sun Energy - Web Oficial", descripcion: "Ingenieros y Peritos certificados para evaluar, diseñar, instalar y certificar. Sitelinks: Energía Renovable, Cotización Virtual, Servicios.", landing: "homepowerpr.com" }
+      ],
+      presupuestoEstimado: "12 anuncios activos en región PR · ION LEED LLC Verificado"
     },
     {
       competidor: "Tu Planta Solar",
       activo: false,
       keywords: [],
       copies: [],
-      presupuestoEstimado: "$0 detectado"
+      presupuestoEstimado: "$0 detectado — 0 anuncios en Google Ads Transparency PR"
     },
     {
       competidor: "Planet Solar",
-      activo: false,
-      keywords: [],
-      copies: [],
-      presupuestoEstimado: "$0 detectado"
+      activo: true,
+      keywords: ["sistema solar comercial", "placas solares económicas", "energía solar puerto rico"],
+      copies: [
+        { titulo: "Sistema solar comercial - Placas Solares Económicas", descripcion: "Protege tu operación frente a apagones con tecnología solar industrial y respaldo total. Sitelinks: Contáctanos, Solar fortalece tu empresa, Líderes en energía solar.", landing: "planetsolarpr.net" },
+        { titulo: "Brilla gratis con planet - Sistema solar gratis", descripcion: "Tu sistema solar puede ir pa tu casa. Incluye baterías e instalación. Orientación solar + referidos = más oportunidades.", landing: "planetsolarpr.net/contacto/cotiza" },
+        { titulo: "Vive con energía del sol - Energía solar en Puerto Rico", descripcion: "Descubre cómo ahorrar hasta 70% en tu factura con energía solar. Paneles solares residenciales. Empresa solar boricua.", landing: "planetsolarpr.net/contacto/cotiza" }
+      ],
+      presupuestoEstimado: "19 anuncios activos en región PR · P2P Communications LLC Verificado"
     }
   ],
+
   auctionInsights: [
-    { nombre: "Windmar", esWindmar: true, impresiones: 100, posicion: 1.0, sobreWindmar: null, keywords: 5 },
-    { nombre: "Power Solar", esWindmar: false, impresiones: 20, posicion: 2.5, sobreWindmar: 0, keywords: 1 },
-    { nombre: "Tu Planta Solar", esWindmar: false, impresiones: 10, posicion: 3.0, sobreWindmar: 0, keywords: 1 }
+    { nombre: "Windmar (Usted)", esWindmar: true, impresiones: 10.88, posicion: 1.0, sobreWindmar: null, keywords: 6 },
+    { nombre: "ddsolarbatteryplus.com", esWindmar: false, impresiones: 12.75, posicion: 1.5, sobreWindmar: 54.69, keywords: 0 },
+    { nombre: "cimtechpr.com", esWindmar: false, impresiones: 10, posicion: 1.3, sobreWindmar: 66.67, keywords: 0 },
+    { nombre: "selladopr.com", esWindmar: false, impresiones: 10, posicion: 2.0, sobreWindmar: 47.17, keywords: 0 },
+    { nombre: "planetsolarpr.net", esWindmar: false, impresiones: 10, posicion: 1.8, sobreWindmar: 41.67, keywords: 0 },
+    { nombre: "ecoflowpr.com", esWindmar: false, impresiones: 10, posicion: 1.5, sobreWindmar: 56.60, keywords: 0 },
+    { nombre: "lumapr.com", esWindmar: false, impresiones: 10, posicion: 1.1, sobreWindmar: 16.67, keywords: 0 },
+    { nombre: "hhsolarpr.com", esWindmar: false, impresiones: 10, posicion: 1.6, sobreWindmar: 63.16, keywords: 0 },
+    { nombre: "superiorroofingpr.com", esWindmar: false, impresiones: 10, posicion: 2.0, sobreWindmar: 45.83, keywords: 0 },
+    { nombre: "powersolarpr.com", esWindmar: false, impresiones: 10, posicion: 1.4, sobreWindmar: 60.47, keywords: 0 }
   ],
+
   alertas: [
-    { tipo: "warn", fuente: "Meta Ads Library", texto: "<strong>Power Solar</strong> tiene 94 anuncios activos — el más agresivo del mercado. Volumen masivo en Meta con 13 nuevos esta semana. Saturación de mercado." },
-    { tipo: "warn", fuente: "Meta Ads Library", texto: "<strong>Planet Solar</strong> escala rápido con 42 anuncios y alianza con Costco + Tesla Powerwall 3. Giveaway de 10 sistemas genera leads masivos." },
-    { tipo: "good", fuente: "Google Transparency + Semrush", texto: "<strong>Power Solar</strong> es el ÚNICO competidor con anuncios activos en Google (3 anuncios verificados). Los otros 3 competidores tienen 0 presencia en Google Ads — ventaja masiva para Windmar." },
-    { tipo: "info", fuente: "Google Transparency", texto: "<strong>Power Solar</strong> corre 3 anuncios de búsqueda en Google con copies enfocados en garantía 30 años y llamada gratuita. Compiten directo con Windmar por la keyword 'placas solares puerto rico'." },
-    { tipo: "good", fuente: "Semrush", texto: "<strong>Windmar</strong> domina Google Ads con posición #1 en las 5 keywords pagadas (solar for puerto rico, solar pr, placas solares, solar panels PR, windmar PR). Power Solar solo compite en 1 keyword." },
+    { tipo: "warn", fuente: "Meta Ads Library", texto: "<strong>Power Solar</strong> tiene 94 anuncios activos en Meta — el más agresivo del mercado. Volumen masivo con 13 nuevos esta semana." },
+    { tipo: "warn", fuente: "Google Ads Transparency PR", texto: "<strong>Power Solar</strong> domina Google con ~400 anuncios (búsqueda, video, display). Power Solar LLC verificado. Copies incluyen Programa Nueva Energía, TOPCon 595W, y Energía Estable 24/7." },
+    { tipo: "warn", fuente: "Meta Ads Library", texto: "<strong>Planet Solar</strong> escala rápido con 42 anuncios Meta y alianza con Costco + Tesla Powerwall 3. Giveaway de 10 sistemas genera leads masivos." },
+    { tipo: "warn", fuente: "Google Ads Transparency PR", texto: "<strong>Planet Solar</strong> tiene 19 anuncios en Google (P2P Communications LLC). Incluye búsqueda, video y referidos. Compite en keywords de placas solares económicas y sistema solar gratis." },
+    { tipo: "info", fuente: "Google Ads Transparency PR", texto: "<strong>Home Power Sun Energy</strong> tiene 12 anuncios Google activos (ION LEED LLC) — dominio correcto: homepowerpr.com. Enfoque en paneles solares, mantenimiento y cotización virtual." },
+    { tipo: "good", fuente: "Google Ads Transparency PR", texto: "<strong>Tu Planta Solar</strong> sigue sin presencia en Google Ads (0 anuncios en región PR). Solo 3 anuncios en Meta. Competidor de menor amenaza." },
+    { tipo: "warn", fuente: "Google Ads · Cuenta Windmar", texto: "<strong>Cuenta Windmar detenida</strong> — Se cumplió la fecha límite para verificar identidad. Campañas pausadas. Presupuesto: USD $488/día ($200 en GENERIC). Urge reactivar verificación." },
+    { tipo: "good", fuente: "Google Ads · Auction Insights", texto: "<strong>10 competidores</strong> detectados en subasta Google Ads PR. ddsolarbatteryplus.com lidera impresiones (12.75%). powersolarpr.com tiene 60.47% de posición superior sobre Windmar. Windmar tiene 84.73% tasa parte superior de página." },
     { tipo: "info", fuente: "Meta Ads Library", texto: "Ningún competidor usa <strong>marca premium o trayectoria de 20+ años</strong> como mensaje central. Oportunidad para Windmar de diferenciarse por experiencia." }
   ],
+
   historial: [
+    { fecha: "15 abr 2026 (v2)", metaTotal: 146, googleActivos: 3, masActivo: "Power Solar" },
     { fecha: "15 abr 2026", metaTotal: 146, googleActivos: 1, masActivo: "Power Solar" },
     { fecha: "14 abr 2026", metaTotal: 22, googleActivos: 3, masActivo: "Power Solar" }
   ]
