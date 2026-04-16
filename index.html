@@ -14,7 +14,7 @@
     --danger:#ff4d4d; --warn:#ffb347; --windmar:#0057ff; --google:#4285f4;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.5;min-height:100vh;}
+  body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:16px;line-height:1.6;min-height:100vh;}
   body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:0.4;}
 
   header{border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;background:rgba(10,12,15,0.95);backdrop-filter:blur(8px);z-index:100;}
@@ -30,28 +30,28 @@
 
   main{max-width:1320px;margin:0 auto;padding:32px;}
   .page-title{margin-bottom:32px;animation:fadeUp 0.5s ease both;}
-  .page-title h1{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#fff;letter-spacing:-0.02em;}
-  .page-title p{font-size:13px;color:var(--muted);margin-top:4px;font-family:'IBM Plex Mono',monospace;}
+  .page-title h1{font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;color:#fff;letter-spacing:-0.02em;}
+  .page-title p{font-size:14px;color:var(--muted);margin-top:4px;font-family:'IBM Plex Mono',monospace;}
 
   .kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:32px;animation:fadeUp 0.5s 0.1s ease both;}
   .kpi{background:var(--surface);padding:24px;position:relative;overflow:hidden;transition:background 0.2s;}
   .kpi:hover{background:#151920;}
   .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
   .kpi:hover::before{transform:scaleX(1);}
-  .kpi-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
-  .kpi-value{font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;color:#fff;line-height:1;}
+  .kpi-label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+  .kpi-value{font-family:'IBM Plex Mono',monospace;font-size:36px;font-weight:600;color:#fff;line-height:1;}
   .kpi-value.accent{color:var(--accent);} .kpi-value.green{color:var(--accent2);} .kpi-value.blue{color:var(--windmar);}
-  .kpi-delta{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin-top:6px;}
+  .kpi-delta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);margin-top:6px;}
 
   .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:32px;animation:fadeUp 0.5s 0.2s ease both;}
   .panel{background:var(--surface);padding:24px;}
   .panel-full{background:var(--surface);padding:24px;border:1px solid var(--border);margin-bottom:32px;animation:fadeUp 0.5s 0.25s ease both;}
-  .section-title{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin:40px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--border);}
-  .panel-title{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;}
+  .section-title{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin:40px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+  .panel-title{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;}
   .panel-title span{color:var(--accent);}
 
   /* fuente badge */
-  .fuente{display:inline-flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:9px;padding:2px 8px;border:1px solid var(--border2);color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;}
+  .fuente{display:inline-flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:10px;padding:2px 8px;border:1px solid var(--border2);color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:14px;}
   .fuente.meta{border-color:rgba(24,119,242,0.4);color:#4a90d9;}
   .fuente.ahrefs{border-color:rgba(245,166,35,0.4);color:var(--accent);}
   .fuente.semrush{border-color:rgba(0,200,150,0.4);color:var(--accent2);}
@@ -59,8 +59,8 @@
   /* Meta competitor list */
   .competitor-row{display:grid;grid-template-columns:150px 50px 50px 1fr 130px auto;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);}
   .competitor-row:last-child{border-bottom:none;}
-  .comp-name{font-size:13px;font-weight:500;color:#fff;}
-  .comp-count{font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:600;color:var(--accent);text-align:center;}
+  .comp-name{font-size:15px;font-weight:500;color:#fff;}
+  .comp-count{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:var(--accent);text-align:center;}
   .comp-new{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent2);text-align:center;}
   .comp-bar-wrap{height:4px;background:var(--border2);border-radius:2px;overflow:hidden;}
   .comp-bar{height:100%;background:var(--accent);border-radius:2px;transition:width 1s cubic-bezier(0.4,0,0.2,1);}
@@ -69,7 +69,7 @@
 
   /* tabs */
   .comp-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:24px;flex-wrap:wrap;}
-  .comp-tab{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;padding:10px 18px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;text-transform:uppercase;}
+  .comp-tab{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;padding:10px 18px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;transition:all 0.2s;text-transform:uppercase;}
   .comp-tab:hover{color:var(--text);}
   .comp-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
   .comp-panel{display:none;}
@@ -78,8 +78,8 @@
   /* tendencias */
   .tend-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
   .tend-card{border:1px solid var(--border);padding:16px;background:var(--surface2);}
-  .tend-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
-  .tend-value{font-size:13px;color:#fff;line-height:1.5;}
+  .tend-title{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+  .tend-value{font-size:15px;color:#fff;line-height:1.5;}
   .tag-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
   .tag{font-family:'IBM Plex Mono',monospace;font-size:9px;padding:3px 8px;border:1px solid var(--border2);color:var(--text);text-transform:uppercase;letter-spacing:0.06em;}
   .tag.strength{border-color:rgba(0,200,150,0.3);color:var(--accent2);background:rgba(0,200,150,0.05);}
@@ -93,28 +93,28 @@
   .threat-low{color:var(--accent2);font-weight:600;font-family:'IBM Plex Mono',monospace;font-size:11px;}
   .opp-box{margin-top:14px;padding:12px;background:rgba(0,200,150,0.05);border-left:2px solid var(--accent2);}
   .opp-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:5px;}
-  .opp-text{font-size:12px;color:var(--text);line-height:1.5;}
+  .opp-text{font-size:14px;color:var(--text);line-height:1.5;}
   .copies-list{margin-top:10px;display:flex;flex-direction:column;gap:6px;}
-  .copy-item{font-size:12px;color:var(--text);padding:8px 10px;background:var(--surface);border-left:2px solid var(--border2);line-height:1.5;}
+  .copy-item{font-size:14px;color:var(--text);padding:8px 10px;background:var(--surface);border-left:2px solid var(--border2);line-height:1.5;}
   .copy-item strong{color:#fff;display:block;margin-bottom:2px;}
 
   /* google */
   .google-block{margin-bottom:20px;padding:16px;border:1px solid var(--border);}
   .google-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-  .google-name{font-size:13px;font-weight:500;color:#fff;}
-  .g-active{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent2);}
-  .g-none{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);}
+  .google-name{font-size:15px;font-weight:500;color:#fff;}
+  .g-active{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent2);}
+  .g-none{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);}
   .google-ad-item{padding:8px 0;border-bottom:1px solid var(--border);}
   .google-ad-item:last-child{border-bottom:none;}
-  .g-keyword{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--google);margin-bottom:3px;}
-  .g-copy{font-size:12px;color:var(--text);}
-  .g-landing{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);margin-top:2px;}
+  .g-keyword{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--google);margin-bottom:3px;}
+  .g-copy{font-size:14px;color:var(--text);}
+  .g-landing{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin-top:2px;}
   .g-budget{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);}
 
   /* auction */
   .auction-table{width:100%;border-collapse:collapse;}
-  .auction-table th{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0 0 12px;border-bottom:1px solid var(--border2);}
-  .auction-table td{padding:12px 0;border-bottom:1px solid var(--border);font-size:12px;vertical-align:middle;}
+  .auction-table th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0 0 12px;border-bottom:1px solid var(--border2);}
+  .auction-table td{padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;vertical-align:middle;}
   .auction-table tr:last-child td{border-bottom:none;}
   .imp-bar-wrap{width:80px;height:4px;background:var(--border2);border-radius:2px;display:inline-block;vertical-align:middle;margin-right:8px;}
   .imp-bar{height:100%;border-radius:2px;}
@@ -129,7 +129,7 @@
   .alert-item.good{border-left-color:var(--accent2);}
   .alert-item.info{border-left-color:var(--windmar);}
   .alert-icon{font-size:14px;line-height:1.5;flex-shrink:0;}
-  .alert-text{font-size:13px;color:var(--text);line-height:1.5;}
+  .alert-text{font-size:14px;color:var(--text);line-height:1.5;}
   .alert-text strong{color:#fff;font-weight:500;}
   .alert-fuente{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);margin-top:3px;}
 
@@ -204,18 +204,11 @@
   </div>
 
   <!-- 03 GOOGLE ADS -->
-  <div class="section-title">03 — Google Ads (vía Ahrefs)</div>
-  <div class="grid-2">
-    <div class="panel">
-      <div class="panel-title">Keywords pagadas activas</div>
-      <div class="fuente ahrefs">🔍 Fuente: Ahrefs · estimación de keywords en pauta PR</div>
-      <div id="googleAdsContent"></div>
-    </div>
-    <div class="panel">
-      <div class="panel-title">Presupuesto estimado mensual</div>
-      <div class="fuente ahrefs">🔍 Fuente: Ahrefs · estimación basada en CPC y volumen</div>
-      <div id="googleBudgetContent"></div>
-    </div>
+  <div class="section-title">03 — Google Ads · Transparency Center PR</div>
+  <div class="panel-full">
+    <div class="fuente ahrefs">🔍 Fuente: Google Ads Transparency Center · región Puerto Rico</div>
+    <div class="comp-tabs" id="googleTabs"></div>
+    <div id="googlePanels"></div>
   </div>
 
   <!-- 04 AUCTION INSIGHTS -->
@@ -545,35 +538,32 @@ function render() {
     </div>`;
   }).join('');
 
-  // Google Ads
-  document.getElementById('googleAdsContent').innerHTML = d.googleAds.map(g=>`
-    <div class="google-block">
-      <div class="google-header">
-        <span class="google-name">${g.competidor}</span>
-        <span class="${g.activo?'g-active':'g-none'}">${g.activo?'✅ Activo':'❌ Sin presencia'}</span>
+  // Google Ads - Tabs por competidor
+  document.getElementById('googleTabs').innerHTML = d.googleAds.map((g,i)=>
+    `<div class="comp-tab${i===0?' active':''}" onclick="switchGoogleTab(${i})">${g.competidor}</div>`
+  ).join('');
+  document.getElementById('googlePanels').innerHTML = d.googleAds.map((g,i)=>{
+    return `<div class="comp-panel${i===0?' active':''}" id="gpanel-${i}">
+      <div class="google-block" style="border:none;padding:0;">
+        <div class="google-header" style="margin-bottom:16px;">
+          <span class="google-name">${g.competidor}</span>
+          <span class="${g.activo?'g-active':'g-none'}">${g.activo?'✅ Activo — '+g.copies.length+' anuncios detectados':'❌ Sin presencia en Google Ads'}</span>
+        </div>
+        ${g.activo ? `
+          <div style="margin-bottom:16px;">
+            <div class="tend-title">🔑 Keywords detectadas</div>
+            <div class="tag-list">${g.keywords.map(k=>`<span class="tag strength">${k}</span>`).join('')}</div>
+          </div>
+          <div class="tend-title">📋 Copies de anuncios activos</div>
+          ${g.copies.map(c=>`<div class="google-ad-item" style="padding:12px 0;">
+            <div class="g-keyword">${c.titulo}</div>
+            <div class="g-copy">${c.descripcion}</div>
+            <div class="g-landing">↳ ${c.landing}</div>
+          </div>`).join('')}
+        ` : '<div style="color:var(--muted);font-size:14px;padding:20px 0;">Sin anuncios detectados en Google Ads Transparency Center para este competidor en la región de Puerto Rico.</div>'}
       </div>
-      ${g.activo?g.copies.map(c=>`<div class="google-ad-item">
-        <div class="g-keyword">${c.titulo}</div>
-        <div class="g-copy">${c.descripcion}</div>
-        <div class="g-landing">↳ ${c.landing}</div>
-      </div>`).join(''):'<div style="color:var(--muted);font-size:12px;">Sin anuncios detectados en Google Ads</div>'}
-    </div>`).join('');
-
-  document.getElementById('googleBudgetContent').innerHTML = `<div style="display:flex;flex-direction:column;gap:14px;">
-    ${d.googleAds.map(g=>{
-      const n = parseInt((g.presupuestoEstimado.match(/\d[\d,]*/)||['0'])[0].replace(',',''));
-      const pct = Math.min(Math.round(n/5000*100),100);
-      return `<div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
-          <span style="font-size:12px;color:${g.activo?'#fff':'var(--muted)'};">${g.competidor}</span>
-          <span class="g-budget">${g.presupuestoEstimado}</span>
-        </div>
-        <div class="comp-bar-wrap" style="height:5px;">
-          <div class="comp-bar" style="width:${pct}%;background:${g.activo?'var(--google)':'var(--border2)'};"></div>
-        </div>
-      </div>`;
-    }).join('')}
-  </div>`;
+    </div>`;
+  }).join('');
 
   // Auction
   document.getElementById('auctionBody').innerHTML = d.auctionInsights.map(a=>{
