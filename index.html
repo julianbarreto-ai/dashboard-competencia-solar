@@ -601,11 +601,14 @@ function render() {
 }
 
 function switchTab(i){
-  document.querySelectorAll('.comp-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
-  document.querySelectorAll('.comp-panel').forEach((p,j)=>p.classList.toggle('active',i===j));
-}
-
-render();
+  document.querySelectorAll('#compTabs .comp-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
+  document.querySelectorAll('#compPanels .comp-panel').forEach((p,j)=>p.classList.toggle('active',i===j));
+  }
+  function switchGoogleTab(i){
+  document.querySelectorAll('#googleTabs .comp-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
+  document.querySelectorAll('#googlePanels .comp-panel').forEach((p,j)=>p.classList.toggle('active',i===j));
+  }
+  render();
 </script>
 </body>
 </html>
