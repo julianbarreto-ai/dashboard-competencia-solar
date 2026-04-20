@@ -436,6 +436,24 @@
   .playbook-chevron { font-size: 14px; color: var(--muted); transition: transform 0.2s; }
   .playbook-card-name { font-family: Inter, sans-serif; font-size: 16px; font-weight: 700; color: var(--text); }
   .playbook-card-tagline { font-size: 13px; color: var(--muted); line-height: 1.45; margin-top: 3px; }
+
+  /* ── PAGE TITLE structure fix ── */
+  .page-title h1 {
+    font-family: Inter, 'IBM Plex Sans', sans-serif;
+    font-size: clamp(32px, 4.5vw, 56px);
+    font-weight: 800; line-height: 1.08; letter-spacing: -0.03em;
+    color: var(--text); margin-bottom: 10px;
+  }
+  .page-title #subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px; font-weight: 400; line-height: 1.5;
+    color: var(--muted); letter-spacing: 0.03em;
+    margin-bottom: 32px;
+  }
+  .page-title #subtitle::before {
+    content: ''; display: inline-block; width: 32px; height: 2px;
+    background: var(--accent); margin-right: 10px; vertical-align: middle;
+  }
 </style>
 </head>
 <body>
