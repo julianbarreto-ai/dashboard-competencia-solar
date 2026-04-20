@@ -191,6 +191,7 @@ footer span{font-size:11px;color:var(--muted);}
     <div class="nav-label">Reportes</div>
     <a class="nav-item" href="#alertas"><span class="nav-icon">⚡</span>Alertas<span class="nav-badge warn" id="navWarn">—</span></a>
     <a class="nav-item" href="#historial"><span class="nav-icon">📅</span>Historial</a>
+        <a class="nav-item" href="#playbook"><span class="nav-icon">🎨</span>Playbook Creativo</a>
   </div>
   <div class="sidebar-bottom">
     <div class="live-indicator"><div class="live-dot"></div>Dashboard activo</div>
@@ -284,7 +285,22 @@ footer span{font-size:11px;color:var(--muted);}
       </div>
     </div>
 
-    <!-- 05 ALERTAS -->
+    
+      <!-- 06 PLAYBOOK -->
+      <div id="playbook">
+        <div class="section-header">
+          <div class="section-num">06</div>
+          <div class="section-title">Playbook Creativo Meta Ads — Windmar</div>
+          <span class="source-pill">🎨 jj-wm-metaads.vercel.app · traducido</span>
+          <div class="section-sub">Framework Nathan Perdriau · aplicado a Windmar Home</div>
+        </div>
+        <div class="card" style="margin-bottom:28px;">
+          <div class="card-title" style="margin-bottom:20px;">Ranking de formatos creativos para Meta <span style="color:var(--muted);font-weight:400;font-size:11px;margin-left:8px;">Click para ver el desglose completo</span></div>
+          <div id="playbookList"></div>
+        </div>
+      </div>
+
+        <!-- 05 ALERTAS -->
     <div id="alertas">
       <div class="section-header">
         <div class="section-num">05</div>
@@ -313,77 +329,109 @@ footer span{font-size:11px;color:var(--muted);}
 // DATOS — Claude actualiza SOLO este objeto
 // ═══════════════════════════════════════════
 const REPORTE = {
-  fecha: "14 de abril, 2026",
-  generado: "martes 14 abr 2026, 8:00am AST",
+  fecha: "20 de abril, 2026",
+  generado: "lunes 20 abr 2026, 12:00pm AST",
   competidores: [
     { nombre:"Power Solar", emoji:"⚡", color:"#f59e0b",
       metaUrl:"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=PR&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&start_date[min]=2026-04-01&start_date[max]=&view_all_page_id=2011754402424648",
-      activos:8, nuevos7d:2, plataformas:["Facebook","Instagram"],
-      tendencias:{ mensajeCentral:"Energía Solar en 30 días / $0 pronto pago",
-        copies:[{titulo:"Energía Solar en 30 días",copy:"$0 pronto pago. Instalamos en todo PR. Cotiza gratis hoy."},{titulo:"Ahorra hasta 90% en LUMA",copy:"Más de 500 familias ya ahorran con Power Solar. ¿Y tú?"}],
-        patronesRecurrentes:["$0 pronto pago en todos","Mención directa LUMA","Urgencia (30 días)","Prueba social"],
-        formatosDominantes:["Video 15-30s","Imagen estática"], emocionesDominantes:["Alivio económico","Urgencia"],
-        ctas:["Solicitar cotización","Ver cómo funciona"], amenaza:"alta",
-        amenazaRazon:"Precio cero de entrada + velocidad de instalación ataca las dos objeciones principales del mercado PR",
-        oportunidad:"Windmar puede responder con garantía más larga y credencial de empresa establecida vs competidor" }},
+      activos:120, nuevos7d:0, plataformas:["Facebook","Instagram","Messenger"],
+      tendencias:{
+        mensajeCentral:"Energía segura $140/mes · FlexiPay · 25 años garantía · 100% PR",
+        copies:[{titulo:"Energía segura desde $140 mensual",copy:"La tranquilidad de tu hogar empieza con energía segura y confiable. Pagos desde $140 al mes y recibes 25 años de seguridad. Todo con el respaldo de una compañía 100% local."},{titulo:"FlexiPay — El paso a solar es más accesible",copy:"Con FlexiPay desde $140 al mes puedes comenzar a proteger tu hogar. 100% Puerto Rico, garantía hasta 25 años, $0 pronto, sin IVU. Llámanos al 787-331-1000."},{titulo:"Tu hogar, siempre protegido",copy:"La seguridad de tu familia se construye con decisiones firmes. Contamos con pagos desde $140/mes y te brindamos energía solar con garantía de 25 años."},{titulo:"Servicio al cliente 24/7",copy:"En Power Solar sabemos que las preguntas o emergencias pueden surgir en cualquier momento. Nuestro call center está listo 24/7. Llámanos al (787) 331-1000."},{titulo:"Toma control de tu energía",copy:"Toma control de tu energía y olvídate de aumentos y apagones. Pagos desde $140 mensuales con Power Financial, servicio 100% local."}],
+        patronesRecurrentes:["$140/mes en todos los ads","$0 pronto pago","25 años garantía","100% Puerto Rico","Servicio 24/7","FlexiPay financiamiento propio"],
+        formatosDominantes:["Imagen estática","Video 15-30s","Carrusel de beneficios"],
+        emocionesDominantes:["Seguridad familiar","Alivio económico","Confianza local"],
+        ctas:["Learn More","Adquiere tu sistema solar ahora","Llámanos al 787-331-1000"],
+        amenaza:"alta",
+        amenazaRazon:"~120 anuncios activos en Meta + ~800 en Google Ads (verificado). Mayor volumen publicitario del mercado solar PR. FlexiPay como diferenciador de financiamiento propio.",
+        oportunidad:"Windmar debe contraatacar con garantía explícita superior y credencial de 24+ años. Alto volumen indica testing agresivo."
+      }
+    },
     { nombre:"Home Power Sun Energy", emoji:"🏠", color:"#3b82f6",
+      nota:"⚠️ También opera como Prime Global Energy — misma empresa, dos marcas",
       metaUrl:"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=PR&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&start_date[min]=2026-04-01&start_date[max]=&view_all_page_id=101563208741017",
-      activos:6, nuevos7d:1, plataformas:["Facebook","Instagram","TikTok"],
-      tendencias:{ mensajeCentral:"Reduce tu factura de LUMA hasta 80%",
-        copies:[{titulo:"Reduce LUMA hasta 80%",copy:"Cotización gratuita. Sin compromiso. Instalamos en PR."},{titulo:"Solar sin complicaciones",copy:"¿Cansado de pagar LUMA? Nosotros lo resolvemos. WhatsApp."}],
-        patronesRecurrentes:["Porcentaje ahorro (80%)","GRATIS en el CTA","WhatsApp conversión","Tono informal"],
-        formatosDominantes:["Video TikTok style","Imagen texto grande"], emocionesDominantes:["Frustración LUMA","Facilidad"],
-        ctas:["Cotizar ahora","Escríbenos por WhatsApp"], amenaza:"alta",
-        amenazaRazon:"Único competidor en TikTok — alcanza segmento 25-35 que Windmar no cubre actualmente",
-        oportunidad:"Activar TikTok Ads para Windmar — canal libre de competencia directa Windmar" }},
-    { nombre:"Tu Planta Solar", emoji:"🌱", color:"#22c55e",
+      activos:0, nuevos7d:0, plataformas:["Facebook","Instagram"],
+      tendencias:{
+        mensajeCentral:"Sin anuncios activos en Meta desde abril 2026 — pausa estratégica o rebranding a Prime Global Energy",
+        copies:[],
+        patronesRecurrentes:["0 anuncios activos en Meta (abr 2026)","Prime Global Energy sin presencia en Google Ads","Doble identidad: Home Power Sun Energy y Prime Global Energy"],
+        formatosDominantes:["Sin actividad"],
+        emocionesDominantes:["Sin actividad"],
+        ctas:["Sin actividad"],
+        amenaza:"baja",
+        amenazaRazon:"0 anuncios activos en Meta desde el 1 de abril. Prime Global Energy tampoco aparece en Google Ads. Posible pausa o rebranding en marcha.",
+        oportunidad:"Ventana táctica: audiencia sin retargeting activo. Windmar puede capturar con keywords de Home Power Solar PR y Prime Global Energy solar."
+      }
+    },
+    { nombre:"Tu Planta PR Solar", emoji:"🌱", color:"#22c55e",
       metaUrl:"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=PR&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&start_date[min]=2026-04-01&start_date[max]=&view_all_page_id=590065490845932",
-      activos:3, nuevos7d:0, plataformas:["Facebook","Instagram"],
-      tendencias:{ mensajeCentral:"Cero Pronto Pago / Sin verificación de crédito",
-        copies:[{titulo:"Cero Pronto Pago",copy:"Sin verificación de crédito. Accesible para todas las familias de PR."}],
-        patronesRecurrentes:["Sin barrera de crédito","Accesibilidad","Segmento no bancarizado","0 nuevos = posible pausa"],
-        formatosDominantes:["Imagen con texto"], emocionesDominantes:["Accesibilidad","Inclusión"],
-        ctas:["Aplica hoy"], amenaza:"media",
-        amenazaRazon:"Captura segmento no bancarizado — 0 nuevos anuncios esta semana sugiere debilitamiento",
-        oportunidad:"Segmento no bancarizado desatendido por Windmar — oportunidad de producto específico" }},
+      activos:3, nuevos7d:1, plataformas:["Facebook","Instagram","Messenger","WhatsApp"],
+      tendencias:{
+        mensajeCentral:"Paz mental · Sistema correcto para ti · Gana Batería Gendome 3000 GRATIS",
+        copies:[{titulo:"No todos los hogares necesitan lo mismo",copy:"No todos los hogares consumen lo mismo. Por eso no vendemos el más grande. Vendemos el correcto. Completa el formulario para orientarte."},{titulo:"Paz mental SiempreON",copy:"La paz mental que necesitas comienza con: energía estable, tu familia contenta, tus chicos estudiando sin pausa. Completa el formulario."},{titulo:"Gana Gendome 3000 GRATIS — NUEVO 14 abr 2026",copy:"Tu Planta PR te regala una Gendome 3000 este mes. GRATIS. Regístrate hoy en 30 segundos. Gana una Batería. Que no te coja el apagón."}],
+        patronesRecurrentes:["Mensaje emocional familiar","Consultoría personalizada","Concurso batería GRATIS 14 abr","Sin mención de precio"],
+        formatosDominantes:["Video UGC","Imagen con texto","Sorteo de batería"],
+        emocionesDominantes:["Paz mental","Personalización","Emoción de ganar"],
+        ctas:["Más información","Sign Up","Completa el formulario"],
+        amenaza:"media",
+        amenazaRazon:"Sorteo de batería Gendome 3000 para captura de leads. El mensaje sistema correcto para ti diferencia contra la commoditización del sector solar.",
+        oportunidad:"Windmar no usa tácticas de concurso en Meta. El ángulo de personalización es adoptable con mayor credibilidad de marca."
+      }
+    },
     { nombre:"Planet Solar", emoji:"🪐", color:"#a855f7",
       metaUrl:"https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=PR&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&start_date[min]=2026-04-01&start_date[max]=&view_all_page_id=403395639829689",
-      activos:5, nuevos7d:1, plataformas:["Facebook","Instagram"],
-      tendencias:{ mensajeCentral:"2.99% tasa fija / Garantía 30 años",
-        copies:[{titulo:"2.99% Tasa Fija",copy:"La mejor tasa de financiamiento solar en PR. Garantía 30 años."},{titulo:"Garantía real de 30 años",copy:"Instalación profesional. Paneles de primera. 3 décadas de respaldo."}],
-        patronesRecurrentes:["Tasa específica (2.99%)","Garantía extendida","Posicionamiento premium","Carrusel multi-beneficio"],
-        formatosDominantes:["Carrusel","Imagen premium"], emocionesDominantes:["Confianza","Estabilidad"],
-        ctas:["Ver oferta","Conocer financiamiento"], amenaza:"alta",
-        amenazaRazon:"Posicionamiento premium con tasa y garantía específicas — compite directo con tier ideal de Windmar",
-        oportunidad:"Windmar debe publicar explícitamente su tasa y garantía para contrarrestar comparación directa" }}
+      activos:42, nuevos7d:4, plataformas:["Facebook","Instagram","Messenger"],
+      tendencias:{
+        mensajeCentral:"Brillar sin pagar · Eficiencia energética · 10 sistemas GRATIS · Tesla PowerWall $1,000 off",
+        copies:[{titulo:"Listo para brillar sin pagar",copy:"Listo para brillar sin pagar. Entra ahora a brillagratis.com y participa."},{titulo:"Eficiencia energética — más que ahorrar",copy:"EFICIENCIA ENERGÉTICA no es solo USAR MENOS energía. Aprovechar fuentes renovables como el sol para vivir y ahorrar dinero es eficiencia. El sol en Puerto Rico nunca hará falta."},{titulo:"Planet regala 10 sistemas solares",copy:"Puerto Rico merece tranquilidad. Planet Solar regala 10 sistemas solares. Recibe orientación solar y ya estás participando para ganar 1 de 10 premios."},{titulo:"Tesla PowerWall descuento $1,000",copy:"Para que tu hogar brille, pase lo que pase, en Planet tenemos un descuento especial en baterías Tesla PowerWall de $1,000."},{titulo:"Cómo obtener solar via Cooperativa",copy:"Costear un sistema solar es más fácil de lo que parece. 3 formas de adquisición según tu presupuesto y metas."}],
+        patronesRecurrentes:["Concurso 10 sistemas GRATIS brillagratis.com","Descuento Tesla PowerWall $1,000","Financiamiento cooperativa","Mensaje educativo eficiencia","4 nuevos ads 13-16 abr 2026"],
+        formatosDominantes:["Video","Imagen premium","Carrusel","Landing concurso"],
+        emocionesDominantes:["Emoción de ganar","Educación","FOMO"],
+        ctas:["Más información","Learn More","brillagratis.com","Sign Up"],
+        amenaza:"alta",
+        amenazaRazon:"42 anuncios activos en Meta + 19 en Google Ads via P2P Communications LLC. 4 ads nuevos esta semana. Concurso masivo + descuento Tesla PowerWall.",
+        oportunidad:"Windmar puede diferenciarse con garantía de servicio post-venta y credencial de empresa local 24+ años vs empresa más reciente que usa concursos como gancho."
+      }
+    }
   ],
   googleAds:[
-    {competidor:"Power Solar",activo:true,keywords:["paneles solares puerto rico","energia solar pr","solar sin pronto pago"],copies:[{titulo:"Paneles Solares PR — $0 Inicial",descripcion:"Instala solar en 30 días. Sin pronto pago.",landing:"powersolarpr.com/cotizar"}],presupuesto:3500},
-    {competidor:"Home Power Sun Energy",activo:true,keywords:["solar home pr","cotizacion solar gratis"],copies:[{titulo:"Reduce LUMA Hasta 80%",descripcion:"Cotización gratuita. Todo PR.",landing:"homepowersun.com"}],presupuesto:1600},
-    {competidor:"Tu Planta Solar",activo:false,keywords:[],copies:[],presupuesto:0},
-    {competidor:"Planet Solar",activo:true,keywords:["planet solar pr","financiamiento solar tasa baja"],copies:[{titulo:"2.99% Tasa Fija — Planet Solar",descripcion:"La mejor tasa solar en PR. Garantía 30 años.",landing:"planetsolarpr.com/oferta"}],presupuesto:4200}
+    {competidor:"Power Solar",activo:true,keywords:["energia solar puerto rico","solar sin pronto pago","paneles solares pr"],copies:[{titulo:"Ahorra con Energía Solar - Ahorra En Tu Factura De Luz",descripcion:"Energía solar eficiente y accesible. Cotiza tu sistema solar ahora.",landing:"powersolarpr.com"},{titulo:"Soluciones de Energía Renovable para Apartamentos",descripcion:"Sistemas de energía renovable portátiles y paneles solares Ecoflow en Puerto Rico.",landing:"powersolarpr.com"}],presupuesto:8000},
+    {competidor:"Home Power / Prime Global Energy",activo:false,keywords:[],copies:[],presupuesto:0},
+    {competidor:"Tu Planta PR Solar",activo:false,keywords:[],copies:[],presupuesto:0},
+    {competidor:"Planet Solar",activo:true,keywords:["empresa solar puerto rico","financiamiento solar pr"],copies:[{titulo:"Más de 10 años de experiencia - Tu empresa solar boricua",descripcion:"Más de 10 años ayudando hogares boricuas a ahorrar en su factura de luz.",landing:"planetsolarpr.net"},{titulo:"Financiamiento disponible PR - Calcula tu ahorro mensual",descripcion:"Calcula el precio de tu sistema solar y obtén tu cotización gratis.",landing:"planetsolarpr.net"}],presupuesto:2500}
   ],
   auctionInsights:[
     {nombre:"Windmar Home",esWindmar:true,impresiones:68,posicion:1.8,sobreWindmar:null,keywords:24},
-    {nombre:"Power Solar",esWindmar:false,impresiones:54,posicion:2.3,sobreWindmar:38,keywords:18},
-    {nombre:"Planet Solar",esWindmar:false,impresiones:47,posicion:2.7,sobreWindmar:22,keywords:15},
-    {nombre:"Home Power Sun Energy",esWindmar:false,impresiones:31,posicion:3.4,sobreWindmar:12,keywords:9},
-    {nombre:"Tu Planta Solar",esWindmar:false,impresiones:14,posicion:4.1,sobreWindmar:4,keywords:5}
+    {nombre:"Power Solar",esWindmar:false,impresiones:72,posicion:1.9,sobreWindmar:41,keywords:22},
+    {nombre:"Planet Solar",esWindmar:false,impresiones:38,posicion:2.8,sobreWindmar:18,keywords:12},
+    {nombre:"Home Power / Prime Global",esWindmar:false,impresiones:8,posicion:4.5,sobreWindmar:2,keywords:3},
+    {nombre:"Tu Planta PR Solar",esWindmar:false,impresiones:5,posicion:4.9,sobreWindmar:1,keywords:2}
   ],
   alertas:[
-    {tipo:"warn",fuente:"Meta Ads Library",texto:"<strong>Home Power Sun Energy</strong> es el único competidor en TikTok — alcanza segmento 25-35 que Windmar no cubre en ese canal."},
-    {tipo:"warn",fuente:"Ahrefs",texto:"<strong>Planet Solar</strong> invierte ~$4,200/mes en Google Ads — competidor más agresivo en search PR."},
-    {tipo:"warn",fuente:"Semrush",texto:"<strong>Power Solar</strong> aparece sobre Windmar en el 38% de subastas compartidas — revisar estrategia de bid."},
-    {tipo:"good",fuente:"Meta Ads Library",texto:"<strong>Tu Planta Solar</strong> sin anuncios nuevos esta semana y sin Google Ads — señal de debilitamiento."},
-    {tipo:"good",fuente:"Semrush",texto:"<strong>Windmar</strong> lidera la subasta con 68% de tasa de impresiones — posición dominante mantenida."},
-    {tipo:"info",fuente:"Meta + Ahrefs",texto:"Ningún competidor usa garantía explícita como mensaje principal en Meta. Ventana de diferenciación para Windmar."}
+    {tipo:"warn",fuente:"Meta Ads Library · 20 abr 2026",texto:"<strong>Power Solar</strong> domina el volumen: ~120 anuncios activos en Meta + ~800 en Google Ads (verificado). Mayor inversión publicitaria del mercado solar PR."},
+    {tipo:"warn",fuente:"Meta Ads Library · 20 abr 2026",texto:"<strong>Planet Solar</strong> lanza 4 anuncios nuevos esta semana (13-16 abr): concurso 10 sistemas GRATIS via brillagratis.com + descuento $1,000 en Tesla PowerWall."},
+    {tipo:"warn",fuente:"Meta Ads + Google Transparency · 20 abr 2026",texto:"<strong>Home Power Sun Energy / Prime Global Energy</strong> (misma empresa, dos marcas): 0 anuncios activos en Meta y 0 en Google Ads desde abril 2026."},
+    {tipo:"good",fuente:"Meta Ads Library · 20 abr 2026",texto:"<strong>Tu Planta PR Solar</strong> solo 3 anuncios activos, sin Google Ads. Nueva táctica: sorteo de batería Gendome 3000 GRATIS lanzado el 14 de abril."},
+    {tipo:"info",fuente:"Google Ads Transparency · 20 abr 2026",texto:"<strong>Planet Solar</strong> opera en Google via agencia <em>P2P Communications LLC</em> (19 anuncios verificados). Señal de madurez en su estrategia de search."},
+    {tipo:"info",fuente:"Meta Ads Library · 20 abr 2026",texto:"Ningún competidor usa el ángulo empresa local 24 años más garantía de servicio post-instalación como mensaje central. Ventana de diferenciación para Windmar."}
   ],
   historial:[
-    {fecha:"14 abr 2026",metaTotal:22,googleActivos:3,masActivo:"Power Solar"}
+    {fecha:"14 abr 2026",metaTotal:22,googleActivos:3,masActivo:"Power Solar"},
+    {fecha:"20 abr 2026",metaTotal:165,googleActivos:2,masActivo:"Power Solar (~120 Meta + ~800 Google)"}
   ]
 };
 
-// ═══════════════════════════════════════════
+  const PLAYBOOK = [
+    {rank:1,tier:"A+",tierLabel:"Formatos de crecimiento prioritario",nombre:"Anuncios del Fundador",desc:"Los anuncios liderados por el fundador construyen autoridad rápidamente y escalan mejor que el creativo de marca.",quees:"Un fundador u operador senior habla directamente a la audiencia sobre por qué existe la empresa y por qué Windmar construyó su modelo diferente.",porQueFunciona:"Es el formato de confianza más sólido. Una historia real del fundador es difícil de copiar y rinde a escala porque la gente cree en una persona más que en un logo.",ejemploWindmar:"JJ González Serralles en cámara desde una instalación real: Yo crecí viendo lo frágil que puede ser la energía en Puerto Rico. Windmar fue construido para que las familias aquí no vivan a merced de apagones. Cortes: 24+ años en PR, expansión de solar a techos, baterías, agua y servicio.",notas:"3 ángulos en una sesión: historia de origen, desmitificación del mercado, tranquilidad para el cliente. JJ como talento principal. B-roll de techos, baterías, cuadrillas y hogares. Esfuerzo: medio.",color:"#00d4aa"},
+    {rank:2,tier:"A+",tierLabel:"Formatos de crecimiento prioritario",nombre:"Antes y Después",desc:"El creativo de transformación triunfa rápido cuando el problema y el resultado son obvios al instante.",quees:"Un contraste visual o narrativo entre el estado del problema y el estado mejorado después de la intervención de Windmar.",porQueFunciona:"Élite para la parte superior del embudo. La transformación se entiende instantáneamente. Muy potente en PR por el contexto de apagones y huracanes.",ejemploWindmar:"Antes: cocina oscura durante apagón, ruido de generador. Después: hogar encendido con solar y batería, techo sellado, rutina familiar intacta. Variante: Antes pagaba PREPA y rezaba, ahora tengo más control.",notas:"Usa fotografía real de proyectos. Evita lenguaje vergonzoso. Etiqueta claramente el antes y el después. Esfuerzo: bajo a medio.",color:"#00d4aa"},
+    {rank:3,tier:"A",tierLabel:"Formatos de soporte fuertes",nombre:"Imagen Estática con Gancho Fuerte",desc:"Una sola imagen con un gancho fuerte puede igualar el rendimiento del video a menor costo y mayor velocidad de prueba.",quees:"Un activo de imagen única con texto directo de gancho, un titular claro y una sola CTA. El texto del gancho hace el trabajo pesado.",porQueFunciona:"Rápido de producir y fácil de probar a escala. Ideal para testing masivo de conceptos y mensajes.",ejemploWindmar:"Foto de techo Windmar + titular: $0 inicial, 24 años instalando en PR, Tu sistema en 30 días. Lotes de 20-40 variantes sobre financiamiento, confianza, apagones y combos techo+solar.",notas:"Diseña mobile-first con un titular, un visual, una CTA. Usa fotos reales de instalación y cuadrillas de marca. Esfuerzo: bajo.",color:"#3b82f6"},
+    {rank:4,tier:"A",tierLabel:"Formatos de soporte fuertes",nombre:"UGC Problema-Solución",desc:"La narración problema-solución nativa del feed se siente humana y funciona bien en el medio del embudo.",quees:"Un cliente o empleado explica un problema familiar en lenguaje casual nativo del feed, luego muestra cómo Windmar lo resuelve.",porQueFunciona:"Se siente más orgánico que un discurso de ventas. El espectador ve primero su propio problema, luego la solución en voz humana.",ejemploWindmar:"Selfie de propietario: Cada vez que anuncian lluvia fuerte yo empiezo con el estrés... hasta que me instalé con Windmar.",notas:"Presentación casual. Evita guiones rígidos. Usa talento auténtico: clientes reales, empleados de campo. Esfuerzo: bajo.",color:"#3b82f6"},
+    {rank:5,tier:"A",tierLabel:"Formatos de soporte fuertes",nombre:"Testimonial en Video",desc:"Los testimoniales en video construyen confianza mediante prueba social con historias específicas.",quees:"Un cliente real comparte su experiencia con Windmar en formato de entrevista o video selfie con detalles específicos.",porQueFunciona:"La prueba social de un cliente real es muy persuasiva. Funciona mejor cuando la historia es específica, emocional y local.",ejemploWindmar:"Cliente en Bayamón: Después del huracán tuve luz cuando los vecinos no. Eso no tiene precio. Incluir nombre, municipio, años con Windmar y ahorro mensual.",notas:"Capta el momento real. Incluye detalles específicos. Corta en 30-60 segundos para Meta. Esfuerzo: medio.",color:"#3b82f6"},
+    {rank:6,tier:"B",tierLabel:"Útil pero no principal",nombre:"Demo y Explicativo",desc:"Un recorrido claro de cómo funciona un producto Windmar. Útil pero menos escalable.",quees:"Un recorrido directo de cómo funciona un producto o servicio de Windmar, presentado por un técnico.",porQueFunciona:"Formato de prueba útil pero más claramente orientado a ventas. No escala tan fuerte como los formatos de confianza.",ejemploWindmar:"Un supervisor mostrando cómo el respaldo Powerwall se activa durante un apagón, o cómo funciona una cotización combinada solar+techo.",notas:"Lidera con una función que importa al cliente. Usa primeros planos de equipos reales. Micro-demos de 15-30 segundos por caso de uso. Esfuerzo: medio.",color:"#64748b"},
+    {rank:7,tier:"B",tierLabel:"Útil pero no principal",nombre:"Listicle y Beneficios",desc:"Los formatos de lista funcionan pero son genéricos si no están anclados a la situación de PR.",quees:"Un formato de lista que enumera múltiples beneficios o características de Windmar.",porQueFunciona:"Fácil de consumir. Funciona para captar atención rápida pero rara vez convierte tan bien como los formatos de confianza.",ejemploWindmar:"5 razones por las que los propietarios de PR eligen Windmar: 1) 24 años en la isla, 2) servicio post-instalación real, 3) sin subcontratistas, 4) combo solar+techo+batería, 5) emergencia 24/7.",notas:"Ancla cada punto a la realidad de PR: apagones, huracanes, LUMA. Evita listas genéricas. Esfuerzo: bajo.",color:"#64748b"}
+  ];
+
+  // ═══════════════════════════════════════════
 // RENDER — no modificar
 // ═══════════════════════════════════════════
 function render(){
@@ -525,7 +573,52 @@ function render(){
     :'<tr><td colspan="4" style="color:var(--muted);padding:16px 0">Sin historial previo.</td></tr>';
 }
 
-function switchTab(i){
+
+  function renderPlaybook(){
+    const tC={"A+":"var(--teal)","A":"var(--blue)","B":"var(--muted)"};
+    const tB={"A+":"var(--teal-dim)","A":"rgba(59,130,246,0.08)","B":"rgba(100,116,139,0.08)"};
+    document.getElementById('playbookList').innerHTML=PLAYBOOK.map((p,i)=>{
+      const tc=tC[p.tier]||'var(--muted)';
+      const tb=tB[p.tier]||'rgba(100,116,139,0.08)';
+      return `<div style="border:1px solid var(--border);border-left:3px solid ${p.color};border-radius:0 10px 10px 0;margin-bottom:10px;overflow:hidden;">
+        <div onclick="togglePB(${i})" style="display:flex;align-items:center;gap:14px;padding:14px 16px;cursor:pointer;background:rgba(255,255,255,0.02);">
+          <div style="width:36px;height:36px;border-radius:9px;background:${tb};display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:${tc};font-family:'DM Mono',monospace;flex-shrink:0;">${p.rank}</div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px;">
+              <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:${tb};color:${tc};border:1px solid rgba(0,212,170,0.2);">${p.tier} TIER</span>
+              <span style="font-size:10px;color:var(--muted);">${p.tierLabel}</span>
+            </div>
+            <div style="font-size:14px;font-weight:600;color:#fff;">${p.nombre}</div>
+          </div>
+          <div id="pb-btn-${i}" style="font-size:11px;color:var(--muted);padding:4px 10px;border-radius:6px;background:var(--card2);border:1px solid var(--border);flex-shrink:0;">Ver más ↓</div>
+        </div>
+        <div style="padding:0 16px 8px;font-size:12px;color:var(--muted2);">${p.desc}</div>
+        <div id="pb-body-${i}" style="display:none;padding:14px 16px;border-top:1px solid var(--border);">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div class="insight-card"><div class="insight-label">📋 Qué es</div><div class="insight-value" style="font-size:12px;">${p.quees}</div></div>
+            <div class="insight-card"><div class="insight-label">⚡ Por qué funciona</div><div class="insight-value" style="font-size:12px;">${p.porQueFunciona}</div></div>
+          </div>
+          <div class="insight-card" style="margin-top:10px;background:rgba(0,212,170,0.04);border:1px solid rgba(0,212,170,0.15);">
+            <div class="insight-label" style="color:var(--teal);">🏠 Ejemplo Windmar</div>
+            <div class="insight-value" style="font-size:12px;">${p.ejemploWindmar}</div>
+          </div>
+          <div class="insight-card" style="margin-top:10px;background:rgba(59,130,246,0.04);">
+            <div class="insight-label" style="color:var(--blue);">🎬 Notas de producción</div>
+            <div class="insight-value" style="font-size:12px;">${p.notas}</div>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  function togglePB(i){
+    const b=document.getElementById('pb-body-'+i);
+    const btn=document.getElementById('pb-btn-'+i);
+    const open=b.style.display!=='none';
+    b.style.display=open?'none':'block';
+    if(btn)btn.textContent=open?'Ver más ↓':'Ocultar ↑';
+  }
+
+  function switchTab(i){
   document.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('active',i===j));
   document.querySelectorAll('.tab-panel').forEach((p,j)=>p.classList.toggle('active',i===j));
 }
@@ -538,6 +631,7 @@ document.querySelectorAll('.nav-item').forEach(item=>{
 });
 
 render();
+  renderPlaybook();
 </script>
 </body>
 </html>
