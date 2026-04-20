@@ -150,7 +150,42 @@
   footer span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.08em;}
   @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
   @media(max-width:1000px){.kpi-row{grid-template-columns:repeat(3,1fr);}.grid-2{grid-template-columns:1fr;}.tend-grid{grid-template-columns:1fr;}main{padding:20px 16px;}header{padding:0 16px;}}
-</style>
+
+/* ── CREATIVE PLAYBOOK ── */
+.playbook-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;}
+.playbook-card{background:var(--surface);border:1px solid var(--border);transition:border-color 0.2s,background 0.2s;overflow:hidden;}
+.playbook-card:hover{border-color:var(--border2);background:#13171e;}
+.playbook-card-header{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer;user-select:none;}
+.playbook-rank{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.08em;color:var(--muted);min-width:52px;}
+.playbook-rank span{font-size:22px;color:#fff;display:block;line-height:1;}
+.playbook-tier-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.playbook-tier-dot.aplus{background:#00c896;}
+.playbook-tier-dot.a{background:#4a90d9;}
+.playbook-tier-dot.b{background:#f5a623;}
+.playbook-tier-dot.c{background:#ffb347;}
+.playbook-tier-dot.d{background:#5a6478;}
+.playbook-card-title{flex:1;}
+.playbook-card-name{font-size:15px;font-weight:500;color:#fff;margin-bottom:2px;}
+.playbook-card-tagline{font-size:12px;color:var(--muted);line-height:1.4;}
+.playbook-tier-badge{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:0.12em;padding:3px 8px;border:1px solid;text-transform:uppercase;flex-shrink:0;}
+.playbook-tier-badge.aplus{color:#00c896;border-color:rgba(0,200,150,0.35);background:rgba(0,200,150,0.06);}
+.playbook-tier-badge.a{color:#4a90d9;border-color:rgba(74,144,217,0.35);background:rgba(74,144,217,0.06);}
+.playbook-tier-badge.b{color:var(--accent);border-color:rgba(245,166,35,0.35);background:rgba(245,166,35,0.06);}
+.playbook-tier-badge.c{color:var(--warn);border-color:rgba(255,179,71,0.35);background:rgba(255,179,71,0.06);}
+.playbook-tier-badge.d{color:var(--muted);border-color:rgba(90,100,120,0.35);background:rgba(90,100,120,0.06);}
+.playbook-chevron{font-size:12px;color:var(--muted);transition:transform 0.25s;margin-left:4px;}
+.playbook-card.open .playbook-chevron{transform:rotate(180deg);}
+.playbook-body{display:none;padding:0 18px 18px;border-top:1px solid var(--border);}
+.playbook-card.open .playbook-body{display:block;}
+.playbook-block{margin-top:14px;}
+.playbook-block-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.playbook-block-text{font-size:13px;color:var(--text);line-height:1.6;}
+.playbook-example{margin-top:14px;padding:12px 14px;background:rgba(0,87,255,0.05);border-left:2px solid var(--windmar);}
+.playbook-example .playbook-block-label{color:var(--windmar);}
+.playbook-prod{margin-top:10px;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);}
+.playbook-prod .playbook-block-label{color:var(--accent);}
+.playbook-tier-group{margin-bottom:8px;}
+.playbook-tier-header{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);padding:12px 0 8px;border-bottom:1px solid var(--border);margin-bottom:10px;display:flex;align-items:center;gap:8px;}</style>
 </head>
 <body>
 
@@ -248,6 +283,34 @@
       <div id="historialList"></div>
     </div>
   </div>
+
+  <!-- 06 CREATIVE PLAYBOOK -->
+  <div class="section-title">06 — Creative Playbook · Windmar Meta Ads</div>
+  <div class="panel-full" style="padding-bottom:28px;">
+    <div class="fuente" style="border-color:rgba(0,87,255,0.4);color:var(--windmar);margin-bottom:20px;">🎨 Fuente: jj-wm-metaads.vercel.app · From JJ to WindMar Marketing · Framework Nathan Perdriau</div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6;">Ranking de 10 formatos creativos para Meta Ads ordenado por potencial de crecimiento. Haz clic en cada formato para ver la descripción, ejemplo específico para WindMar y notas de producción.</p>
+    <div class="playbook-tier-group">
+      <div class="playbook-tier-header"><div class="playbook-tier-dot aplus" style="width:10px;height:10px;margin-right:4px;"></div>A+ TIER — Formatos de crecimiento prioritario</div>
+      <div class="playbook-grid" id="playbookGrid-aplus"></div>
+    </div>
+    <div class="playbook-tier-group" style="margin-top:24px;">
+      <div class="playbook-tier-header"><div class="playbook-tier-dot a" style="width:10px;height:10px;margin-right:4px;"></div>A TIER — Formatos de soporte fuerte</div>
+      <div class="playbook-grid" id="playbookGrid-a"></div>
+    </div>
+    <div class="playbook-tier-group" style="margin-top:24px;">
+      <div class="playbook-tier-header"><div class="playbook-tier-dot b" style="width:10px;height:10px;margin-right:4px;"></div>B TIER — Formatos útiles con condiciones</div>
+      <div class="playbook-grid" id="playbookGrid-b"></div>
+    </div>
+    <div class="playbook-tier-group" style="margin-top:24px;">
+      <div class="playbook-tier-header"><div class="playbook-tier-dot c" style="width:10px;height:10px;margin-right:4px;"></div>C TIER — Oportunidades selectivas</div>
+      <div class="playbook-grid" id="playbookGrid-c"></div>
+    </div>
+    <div class="playbook-tier-group" style="margin-top:24px;">
+      <div class="playbook-tier-header"><div class="playbook-tier-dot d" style="width:10px;height:10px;margin-right:4px;"></div>D TIER — Baja prioridad</div>
+      <div class="playbook-grid" id="playbookGrid-d"></div>
+    </div>
+  </div>
+
 </main>
 
 <footer>
@@ -593,7 +656,37 @@ function switchTab(i){
   document.querySelectorAll('#googleTabs .comp-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
   document.querySelectorAll('#googlePanels .comp-panel').forEach((p,j)=>p.classList.toggle('active',i===j));
   }
-  render();
+  
+const PLAYBOOK = [
+  { rank:1,tier:'aplus',tierLabel:'A+ TIER',name:'Founder Ads',tagline:'Founder-led trust ads build authority fast and scale better than brand-first creative.',what:'A founder or senior operator speaks directly to the audience about why the company exists, what is broken in the category, and why WindMar built its model differently.',why:'The strongest trust format in the framework. A real founder story is difficult to copy, creates authority quickly, and consistently performs at scale — people believe a person faster than they believe a logo.',example:'JJ González Serralles on camera from a real install or neighborhood rooftop: "Yo crecí viendo lo frágil que puede ser la energía en Puerto Rico. WindMar was built so families here do not have to live at the mercy of apagones, diesel noise, and short-term contractors." Alternate cuts: why WindMar stayed for 24+ years, expanded from solar into roofing, batteries, water, and service, and why local execution matters after hurricanes.',production:'Shoot 3 angles in one session: origin story, market myth-busting, customer peace-of-mind pitch. JJ as primary talent, Marc as secondary operator voice. Capture b-roll of rooftops, batteries, service crews, and homes during normal life. Effort: medium — one half-day shoot = a month of cutdowns.' },
+  { rank:2,tier:'aplus',tierLabel:'A+ TIER',name:'Before & After',tagline:'Transformation creative wins fast when the problem and payoff are obvious instantly.',what:'A visual or narrative contrast between the problem state and the improved state after WindMar intervenes.',why:'Elite for top-of-funnel because the transformation is understood instantly. The viewer sees problem, solution, and outcome in a single beat. Execution must stay compliant and truthful.',example:'Before: dark kitchen during outage, portable generator noise, water interruption, roof stains after storm season. After: powered home with solar + battery backup, sealed roof, cleaner install aesthetic, family routine intact. Versions: hurricane-season roof recovery, "antes pagaba PREPA y rezaba, ahora tengo más control," or Starlink + battery for remote-work continuity in the west and montaña.',production:'Use real project photography and mobile video — not renders. Sequence must be instantly readable without captions. Shoot before-state documentation on every installation for future use. Effort: low-medium.' },
+  { rank:3,tier:'aplus',tierLabel:'A+ TIER',name:'Static Image Ads',tagline:'Cheap, fast static tests reveal winning angles before heavier video production spend.',what:'Single-image ads optimized for feed and story placement. Most used for rapid creative testing and retargeting.',why:'Static images load fast, render perfectly across all placements, cost almost nothing to produce, and let the team validate messaging before committing to video budgets.',example:'Dark-background tile with a single real rooftop photo, bold headline ("24 años protegiendo hogares en PR"), and tight subhead ("Solar · Roofing · Battery · Water"). Variants: price anchor ("desde $140/mes"), trust proof ("5,000+ instalaciones"), and urgency ("llama hoy").',production:'Design in a consistent system: 1080x1080 and 1080x1920. Use actual job-site photography, not stock. Batch 6-10 variants per concept in one design session. Effort: very low.' },
+  { rank:4,tier:'a',tierLabel:'A TIER',name:'UGC Problem-Solution',tagline:'Feed-native problem-solution storytelling feels human and lands well mid-funnel.',what:'A real customer or trained talent walks through a relatable problem and then reveals how WindMar solved it, shot in a casual, phone-native style.',why:'UGC-style video lowers skepticism because it looks like content, not advertising. The problem-solution arc creates narrative tension that drives watch time.',example:'"Llevaba tres años aguantando apagones y pagando $400 al mes en PREPA. Me contacté con WindMar, y en menos de 30 días tenía solar, batería, y techo sellado. Ahora genero mi propia energía." Shot handheld in a real kitchen or living room, no studio.',production:'Script loosely — give talent the key points and let them speak naturally. Shoot 3-5 takes. No color grading. Add captions. Effort: low.' },
+  { rank:5,tier:'a',tierLabel:'A TIER',name:'Overproduced Brand Films',tagline:'High-production shoots work best when harvested into dozens of smaller trust assets.',what:'Cinematic brand video that positions WindMar as the category leader in Puerto Rico energy independence. Long-form anchor with dozens of 6-15 second cutdowns.',why:'High-production signals category leadership and justifies premium pricing. The ROI comes from extracting 30-50 assets from one production day.',example:'A 90-second anchor film: aerial shots of PR neighborhoods after María, a WindMar crew installing solar at sunrise, a family during an island-wide blackout with their lights on. Score with original music. Tagline: "Tu energía, en tus manos."',production:'Only produces real ROI if the team commits to extraction — plan 40+ cutdowns before the shoot day. Budget $8-15k for production. Run anchor for brand and cutdowns for performance. Effort: high.' },
+  { rank:6,tier:'b',tierLabel:'B TIER',name:'Product Demos',tagline:'Useful proof content, but usually less native and less scalable than trust formats.',what:'Screen recordings, explainer animations, or live walkthroughs showing how the solar system, battery, or app works.',why:'Demos convert well for warm audiences who already trust the brand. Weak at cold acquisition because they require attention before the viewer is sold on the category.',example:'A technician walks through the WindMar monitoring app on an iPad in front of a real installation. Shows live production data, outage history, and how the battery switches automatically. Duration: 60-90 seconds.',production:'Record on-site with real equipment. Captions are mandatory. Add a trust hook in the first 3 seconds. Effort: low-medium.' },
+  { rank:7,tier:'b',tierLabel:'B TIER',name:'Offer-Led Ads',tagline:'Offers help most when the deal is truly strong and friction stays low.',what:'Ads built around a specific financial offer — a monthly payment anchor, a discount, a bundle, or a promotional deadline.',why:'Offers accelerate decisions from warm leads but rarely create demand from cold ones. Require a genuinely compelling number and a fast path to conversion.',example:'"Desde $140/mes — sin inicial, sin sorpresas." Static or short video with price front-and-center, single CTA, and a WhatsApp or call button. Run to retargeting audiences only.',production:'Keep copy minimal. Lead with the offer in the first frame. Always include a real monthly number. Effort: very low.' },
+  { rank:8,tier:'c',tierLabel:'C TIER',name:'Trend Edits',tagline:'Trends help only when they amplify the message instead of replacing strategy.',what:'Reels or short-form videos using trending audio, visual formats, or meme structures adapted to WindMar messaging.',why:'Trend content can spike reach but rarely builds lasting brand equity. Use selectively when a trend maps naturally onto an energy or resilience message.',example:'A "POV: you installed solar before the next LUMA rate hike" Reel using trending audio. Or a split-screen format showing "neighbors without solar vs. con WindMar." Only produce when the trend is still early.',production:'Ship in under 24 hours or skip. Native capture on iPhone, no post. Assign one social person as trend monitor. Effort: very low but timing-sensitive.' },
+  { rank:9,tier:'d',tierLabel:'D TIER',name:'Testimonials',tagline:'Great reassurance for warm leads, weaker as a cold-acquisition growth engine.',what:'Customer testimonial videos or quote graphics featuring real WindMar clients speaking about their results.',why:'Strong trust signals for mid and bottom funnel but rarely drive cold traffic volume. Best as retargeting overlays after a founder or UGC ad has primed the audience.',example:'A 30-second clip of a Caguas homeowner: "Llevaba 5 años queriendo solar. Con WindMar el proceso fue fácil y en 3 semanas ya estaba generando." Run only to website visitors and video viewers.',production:'Film on-site at client homes after installation. Keep under 45 seconds. One clear result statement required. Effort: low.' },
+  { rank:10,tier:'d',tierLabel:'D TIER',name:'Meme Ads',tagline:'Low-ranked humor can spark attention, but overuse cheapens the brand fast.',what:'Humor-led creative built around a meme format or internet reference, adapted to the energy or home resilience category.',why:'Memes can generate shares and comments but typically attract low-intent audiences and can undermine premium brand positioning.',example:'A relatable "PREPA bill vs. what I expected" meme format, used once as a seasonal engagement post — not as a paid acquisition creative.',production:'Never use as primary paid creative. Organic test only. If it performs organically, consider a clean adaptation for retargeting. Effort: very low.' }
+];
+
+function renderPlaybook() {
+  const tierGroups = {aplus:[],a:[],b:[],c:[],d:[]};
+  PLAYBOOK.forEach(item => { if(tierGroups[item.tier]) tierGroups[item.tier].push(item); });
+  Object.entries(tierGroups).forEach(([tier,items]) => {
+    const grid = document.getElementById('playbookGrid-'+tier);
+    if(!grid) return;
+    grid.innerHTML = items.map(item => '<div class="playbook-card" id="pc-'+item.rank+'"><div class="playbook-card-header" onclick="togglePlaybook('+item.rank+')"><div class="playbook-rank">RANK<span>'+item.rank+'</span></div><div class="playbook-tier-dot '+item.tier+'"></div><div class="playbook-card-title"><div class="playbook-card-name">'+item.name+'</div><div class="playbook-card-tagline">'+item.tagline+'</div></div><span class="playbook-tier-badge '+item.tier+'">'+item.tierLabel+'</span><span class="playbook-chevron">▼</span></div><div class="playbook-body"><div class="playbook-block"><div class="playbook-block-label">¿Qué es?</div><div class="playbook-block-text">'+item.what+'</div></div><div class="playbook-block"><div class="playbook-block-label">¿Por qué funciona?</div><div class="playbook-block-text">'+item.why+'</div></div><div class="playbook-example"><div class="playbook-block-label">Ejemplo WindMar</div><div class="playbook-block-text">'+item.example+'</div></div><div class="playbook-prod"><div class="playbook-block-label">Notas de producción</div><div class="playbook-block-text">'+item.production+'</div></div></div></div>').join('');
+  });
+}
+
+function togglePlaybook(rank) {
+  const card = document.getElementById('pc-'+rank);
+  if(card) card.classList.toggle('open');
+}
+
+renderPlaybook();
+render();
 </script>
 </body>
 </html>
